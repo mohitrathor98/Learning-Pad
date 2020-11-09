@@ -18,3 +18,84 @@ Why to learn GO?
             --> Goroutines represent concurrent tasks.
             --> Channels are used to communicate between tasks.
             --> Select enables task synchronization.
+
+
+DOWNLOAD AND INSTALL LINK:: https://golang.org/dl/
+
+
+Workspace:
+    -- src: source code files
+    -- pkg: packages(libraries)
+    -- bin: contains executables
+
+*******************************************************************************************
+
+#################################################
+GO TOOLS:
+    - go build: compile the program
+                Arguments can be a list of packages or a list of .go giles
+                creates an executable for the main package
+
+                go build -o bin/executable-name src/file.go
+
+    - go doc: prints documentation for a package
+
+    - go fmt: formats source code files
+
+    - go get: downloads packages and installs them
+
+    - go list: lists all installed packages
+
+    - go run: compiles and runs the executable
+
+    - go test: runs tests using files ending in "_test.go"
+#################################################
+
+- import - keyword used to access other packages
+         - It searches directories specified by GOROOT and GOPATH
+
+- There must be one package main.
+- Building the main package generates an executable program.
+- main package needs a main() function
+- main() is where code execution starts
+
+--> Executing go program: go run file.go
+
+
+Variables:
+---------
+Names: same as other lang, case-sensitive
+
+declaration: var x int
+
+                var: keyword to declare Variables
+                x: name of Variable
+                int: data-type
+
+            var x,y int : declare multiple variable on same line
+
+type declaration:
+----------------
+    - Defining an alias(alternate name)
+    - May improve clarity
+        type Celsius float64
+        type IDnum int
+
+        var temp Celsius // it is clear temp is Celsius type temperature
+        var pid IDnum
+
+Intialization:
+-------------
+
+    var x int = 100
+    var x = 100
+
+    x = 100
+
+    - uninitialized variable have a zero value
+    - for string "" Intialization
+
+    x := 100 // declare and intialize as same time
+            // according to RHS value, variable type is determined
+    // can do this only inside a function
+*******************************************************************************************
