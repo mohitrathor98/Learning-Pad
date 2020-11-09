@@ -1,0 +1,20 @@
+Why to learn GO?
+    
+    -- Code runs fast
+        --> It is a compiled language with features of interpreted language
+    
+    -- Garbage Collection
+        --> Automatic memory management
+    
+    -- Simpler Objects
+        --> Go does not use class
+        --> It uses structs with associated memory
+        --> No inheritence, No Constructor, No Generics
+            - Makes code faster
+        
+    -- Efficient concurrency
+        --> concurrency is the management of multiple tasks at the same time.
+        --> Go includes concurrency primitives
+            --> Goroutines represent concurrent tasks.
+            --> Channels are used to communicate between tasks.
+            --> Select enables task synchronization.
