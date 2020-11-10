@@ -32,6 +32,7 @@ Workspace:
 
 #################################################
 GO TOOLS:
+--------
     - go build: compile the program
                 Arguments can be a list of packages or a list of .go giles
                 creates an executable for the main package
@@ -98,4 +99,21 @@ Intialization:
     x := 100 // declare and intialize as same time
             // according to RHS value, variable type is determined
     // can do this only inside a function
+
+Pointers:
+--------
+
+var x int = 1
+var y int
+var ip *int // ip is poiner to x
+
+ip = &x // ip points to x
+y = *ip
+
+New:
+---
+    --> new() creates variable and returns a pointer to variable
+
+    ptr := new(int)
+    *ptr = 3
 *******************************************************************************************
