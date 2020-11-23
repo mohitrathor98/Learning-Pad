@@ -116,4 +116,98 @@ New:
 
     ptr := new(int)
     *ptr = 3
+
+Dellocating Memory:
+------------------
+
+    ---> Local var gets allocated in stack - deallocated after function ends
+    ---> Global or dynamically allocated gets to heap --> needs to be explicitely deallocated
+            -- Garbage Collector deallocates
+
+Comments : // or /* */
+--------
+
+Printing: import from fmt package
+--------
+
+fmt.Printf("Hi")
+x := "Joe"
+fmt.Printf("Hi" + x)
+
+fmt.Printf("Hi %s",x)
+
+Integers:
+--------
+
+var x int
+
+int8, int16, int32, int64, uint8, uint16, unit32, unit64
+
+Type Conversions:
+----------------
+
+var x int32 = 1
+var y int16 = 2
+
+Convert type with T() operation
+
+    x = int32(y)
+
+Complex numbers:
+---------------
+
+    var z complex128 = complex(2,3)
+
+ASCII and Unicode:
+-----------------
+    - Unicode is a 32-bit character code
+    - UTF-8 is variable length
+        --> 8-bit UTF codes are same as ASCII
+    - Code Points - Unicode characters
+    - Rune - a code point in GO
+
+Unicode package(import "unicode"):
+---------------
+
+--> IsDigit(r rune)
+--> IsSpace(r rune)
+--> IsLetter(r rune)
+--> IsLower(r rune)
+--> IsPunct(r rune)
+
+--> ToUpper(r rune)
+--> ToLower(r rune)
+
+Strings package(import "strings"):
+---------------
+
+--> Compare(a,b) - returns an integer comparing to strings lexicographically.
+                 - 0 if a==b
+                 - -1 if a<b
+                 - +1 if a>b
+
+--> Contains(s, substr) - returns true if substring is inside s
+--> HasPreix(s, prefix) - returns true if the string s begin with prefix
+--> Index(s, substr) - returns the index of the first instance of substr in s
+
+String Manipulation(import "strings"):
+-------------------
+
+    --> Strings are immutable, but modified strings are returned
+
+    --> Replace(s, old, new, n) - replace returns a copy of string s with first n instances
+                                  of old replaced by new
+    --> ToLower(s) - returns string
+    --> ToUpper(s) - returns string
+    --> TrimSpace(s) - returns a new string with all leading and trailing white space removed
+
+Strconv package (import "strconv"):
+---------------
+
+    --> Conversions to and from string representations of basic data types
+
+    --> Atoi(s) - converts string s to int
+    --> Itoa(s) - converts int(base 10) to string
+    --> FormatFloat(f,fmt,prec,bitSize) - converts floating point number to a string
+    --> ParseFloat(s, bitSize) - converts a string to a floating point number
 *******************************************************************************************
