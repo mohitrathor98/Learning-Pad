@@ -85,6 +85,14 @@ type declaration:
         var temp Celsius // it is clear temp is Celsius type temperature
         var pid IDnum
 
+Reading inputs:
+--------------
+
+    --> Scan:   num, err := fmt.Scan(&appleNum)
+        ----
+                ==> Inputs gets stored in appleNum
+                ==> Scan returns two things:    Number of inputs read and error if any(nill if no error)
+
 Intialization:
 -------------
 
