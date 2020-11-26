@@ -1,0 +1,52 @@
+*******************************************************************************
+Arrays:
+------
+
+    --> Fixed length
+    --> Elements intialized to zero value
+    --> var x [5] int
+        x[0] = 2
+
+    --> Array Literal: var x [5]int = [5]{1, 2, 3, 4, 5} 
+
+    for i,v range x{
+            fmt.Printf("ind %d, val %d",i,v)
+    }
+
+Slices:
+------
+    --> A "window" on an underlying array
+    --> Three Properties:
+            -- Pointer: indicates the start of the slice
+            -- Length: Number of elements in the slice
+            -- Capacity: Maximum number of elements(Maximum size of the array)
+    --> s1 := arr[start:end] (end is exclusive)
+    --> len(s1) : length of s1
+    --> cap(s1) : Capacity of s1
+
+    --> It makes shallow copy of variables
+Make:
+----
+
+    --> Create a slice(and array ) using make()
+    --> 2-argument version: specify type and length/Capacity
+            -- arr := make([]int, 10)
+
+    --> 3-argument version: specify length and Capacity seperately
+            -- sli := make([]int, 10, 15)
+
+            -- capacity of sli will be 15 but it can be used till 10 only
+            -- here length can be increased later
+                        -- sli = sli[:cap(sli)]
+
+
+append(array,value):
+-------------------
+    --> if array length is too small to fit a new element
+        append increases the size of array
+
+    --> var s []int
+        s = append(s,0)
+        s = append(s, 1)
+        s = append(s, 2, 3, 4) // [0 1 2 3 4]
+*******************************************************************************

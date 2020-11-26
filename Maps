@@ -1,0 +1,33 @@
+***************************************************************
+Hash Tables:
+-----------
+    --> Key/Value pairs
+    --> Hash function is used to compute the slot for a key
+
+Maps:
+----
+    --> Implementation of maps
+    --> use make() to create a maps
+
+    --> var idMap map[string][int]
+        idMap = make(map[string][int]) // string - key, int - value
+
+    --> map literal
+        -- idMap := map[string]int{ "joe" : 123}
+
+    --> Accessing: idMap["joe"]
+    --> New Pair: idMap["jane"] = 1
+
+    --> delete: delete(idMap,"joe")
+
+    --> id, p := idMap["joe"] 
+        // id is value, p is presence of key(true or false)
+
+    --> len(idMap) : number of values
+
+    --> Iterating:
+        for key,val := range idMap {
+                fmt.Println(key, val)
+        }
+
+****************************************************************
