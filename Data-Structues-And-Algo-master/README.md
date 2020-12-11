@@ -1,5 +1,5 @@
 # GFG-DSA
-This repo contains C++ Programs and basic theories for Data structure and Algorithm course of Geeks-For-Geeks.
+This contains C++ Programs and basic theories for Data structure and Algorithm course of Geeks-For-Geeks.
 
 Topics Covered:
 
