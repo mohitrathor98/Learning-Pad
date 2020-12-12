@@ -9,8 +9,8 @@ Maps:
     --> Implementation of maps
     --> use make() to create a maps
 
-    --> var idMap map[string][int]
-        idMap = make(map[string][int]) // string - key, int - value
+    --> var idMap map[string]int
+        idMap = make(map[string]int) // string - key, int - value
 
     --> map literal
         -- idMap := map[string]int{ "joe" : 123}

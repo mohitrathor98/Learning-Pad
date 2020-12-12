@@ -1,19 +1,20 @@
 /*
-	program which prompts the user to first enter a name, and then enter an address. 
-	Your program should create a map and add the name and address to the map using the keys “name” and “address”, respectively. 
+	program which prompts the user to first enter a name, and then enter an address.
+	Your program should create a map and add the name and address to the map using the keys “name” and “address”, respectively.
 	Your program should use Marshal() to create a JSON object from the map, and then your program should print the JSON object.
 */
 
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"encoding/json"
+	"fmt"
 	"os"
 )
 
-func main(){
-	
+func main() {
+
 	//mapv := make(map[string]string)
 
 	var name string
@@ -28,5 +29,14 @@ func main(){
 	fmt.Printf("Address: ")
 	if scanner.Scan() {
 		address = scanner.Text()
+	}
+
+	data := make(map[string]string)
+	data["Name"] = name
+	data["address"] = address
+
+	jsonObect, err := json.MarshalIndent(data, "", "	")
+	if err == nil {
+		fmt.Println("\n" + string(jsonObect))
 	}
 }
