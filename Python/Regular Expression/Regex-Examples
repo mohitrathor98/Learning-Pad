@@ -1,0 +1,46 @@
+
+=================================================
+import re # for regex                           *
+                                                *
+string = ''' Janice is 22 and Theon is 33       *
+            Gabriel is 44 and Joey is 21 '''    *
+                                                *
+ages = re.findall(r'\d{1,3}',string)            *
+names = re.findall(r'[A-Z][a-z]*',string)       *
+# ages and names are list                       *
+=================================================
+
+===========================================================================
+import re                                                                 *
+--------------------------------------------------------------------------*
+if re.search("inform", "we need to inform him about latest information"): *
+    print("There is inform")                                              *
+--------------------------------------------------------------------------*
+m = re.findall("inform","we need to inform him about latest information") *
+print(m) #list                                                            *
+--------------------------------------------------------------------------*
+                                                                          *
+str = "we need to inform him about latest information"                    *
+for i in re.finditr("inform", str):                                       *
+    t = i.span() # t is tuple                                             *
+    print(t)    # prints start and end index of found pattern             *
+                                                                          *
+--------------------------------------------------------------------------*
+str = "sat, hat, mat, pat"                                                *
+allStr = re.findall("[shmp]at",str)                                       *
+# words start with s,h,m,p and have at                                    * 
+print(allStr)                                                             *
+                                                                          *  
+allStr = re.findall("[h-m]at",str)                                        *
+# starts with letters in the range of h and m                             *
+                                                                          *
+allStr = re.findall("[^h-m]at",str)                                       *
+# doesn't starts with letters in the range of h and m                     *
+--------------------------------------------------------------------------*
+                                                                          *
+f = "hat rat mat pat"                                                     *
+regex = re.compile("[r]at") # compile with the pattern to be replaced     *
+f = regex.sub("food",f) # replaces rat with food in the string            *
+                                                                          *
+===========================================================================
+

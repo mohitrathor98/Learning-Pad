@@ -1,0 +1,14 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MetaCharacters
+--------------
+    --> Interpreted in a special way by a RegEx engine
+
+    [] - Square brackets
+    =====================
+        --> specifies a set of characters we wish to match
+
+        Expression : [abc]
+                     String: 'a'        : 1 match
+                     String: 'ac'       : 2 matches
+                     String: 'Hey Jude' : No Match
+                     String: 'abc de ca': 5 matches
