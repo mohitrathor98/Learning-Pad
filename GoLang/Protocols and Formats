@@ -1,0 +1,43 @@
+**************************************************************************
+RFC:
+---
+
+    --> Request for comments
+    --> Definitions of internet protocols and formats
+    Example Protocols:
+        --> HTML - 1866
+        --> URI - Uniform Resource Identifie, 3986
+        --> HTTP - 2616
+
+    Packages:
+    --------
+        --> "net/http" : http.Get("www.abc.com")
+        --> "net" : TCP/IP and socket programming
+
+                    net.Dial("tcp","ucp.edu:80")
+
+JSON:
+----
+    --> JavsScript object Notation
+    --> Attribute-Value pairs
+        -- struct or map
+
+    JSON Marshalling:
+    ================
+        -- Generating JSON representation from an object
+
+       --  Marshal() : returns JSON representation as []byte(runes)
+
+                        barr, err:= json.Marshal(p1) // p1 is structure here
+
+    JSON Unmarshalling:
+    ==================
+        -- Unmarshal() : converts a JSON []byte into a GO object
+        
+        var p2 Person //Person is structure name
+
+        err := json.Unmarshal(barr, &p2)
+
+        --> object must "fit" JSON []byte
+            -- object must have same attributes as json array byte
+**************************************************************************
