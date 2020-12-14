@@ -4,4 +4,14 @@ Kotlin:
     -- Build on JVM
     -- statically typed object oriented and funtional programming
 
+    -- Both compiler and interpreter based language
+    -- Reduced compile time
+
+
+
+    1. compile
+        - kotlinc <program name>.kt
+            -- generates a .class file
     
+    2. Execute
+        - kotlin <className>
