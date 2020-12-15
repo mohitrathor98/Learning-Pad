@@ -14,4 +14,24 @@ Kotlin:
             -- generates a .class file
     
     2. Execute
-        - kotlin <className>
+        - kotlin <className>Kt
+
+**********************************************************************************************************
+package <package name>
+import the packages
+
+Global declarations
+
+main()
+    |->  must take an argument
+                |--> Array of String
+
+        Signature : fun main(sArgs:Array<String>) : Unit{ // Unit - return type(same as void) 
+                                                                |--> No need to define(implicitely Unit)
+
+                    }
+
+                    Argument is mandatory: kotlin HelloWorld // command line argument passed to sArgs
+                    ---------------------
+
+*************************************************************************************************************
