@@ -31,7 +31,7 @@ main()
 
                     }
 
-                    Argument is mandatory: kotlin HelloWorld // command line argument passed to sArgs
-                    ---------------------
+                    Argument is not mandatory: kotlin HelloWorld // command line argument passed to sArgs
+                    -------------------------
 
 *************************************************************************************************************
