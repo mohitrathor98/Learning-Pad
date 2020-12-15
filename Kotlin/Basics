@@ -9,10 +9,6 @@ Variable:
         1.2 TypeInference   : Based on the value, compiler will interpret
             |-> var n = 12
     
-    --> Non-Nullable type & Nullable type
-        1.1 Non-Nullable type : cannot accepr a null
-        1.2 Nullable : can accept a null
-
     --> Global & Local variable --> can have both implicit  and explicit assignment
         |-> must have an implicit assignment
 
@@ -49,4 +45,56 @@ Variable:
                             To  
                             JavaTpoint  
                             """  
-    
+    Type Conversion:
+    ---------------
+        -- implicitely all the varaiables as objects
+
+        For numeric conversion: value.toDouble()
+            - toByte()
+            - toShort()
+            - toInt()
+            - toLong()
+            - toFloat()
+            - toDouble()
+            - toChar()
+
+        value to string: value.toString()
+            
+
+    Non-Nullable type & Nullable type
+    =================================
+        1.1 Non-Nullable type : cannot accept a null
+                |--> Normal variable declaration are non-nullable type(can't be null)
+
+        1.2 Nullable : can accept a null
+                |--> var b:String? = "abc" // ? - represents that it can be null
+                |--> b = null 
+
+        Elvis Operator(?:):
+        --------------
+                --> Must be used only with nullable type variables
+                
+                --> var sString:String = sStr?:"Default";
+                            |--> if value of sStr is not NULL then sStr assigned to sString
+                            |--> else : "Default" is assigned to sString    
+
+        Safe Call Operator(.?):
+        ------------------
+                |--> For Nullable type variable is used to perform some operations, it gives error
+                |--> We need safe call operator to do that
+
+                -- sStr1.?length : Prints null if Null value, else gives length
+
+        Not-Null Assertion operator(!!):
+        -----------------------------
+                --> converts any value to a non-null type 
+                --> throws an exception if the value is null. (Null-Pointer exception)
+
+                -- val l = b!!.length
+
+        Safe Casts:
+        ----------
+                |--> Regular casts may result into a ClassCastException if the object is not of the target type
+                
+                -- val aInt: Int? = a as? Int
+                    |-->  return null if the attempt was not successful
