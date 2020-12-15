@@ -1,0 +1,47 @@
+Variable:
+--------
+    --> statically types(Type of variable must be determined during compile time)
+
+        1.1 Meta type       : explicitely mentioning the type
+            |-> var n:Int = 12
+        1.2 TypeInference   : Based on the value, compiler will interpret
+            |-> var n = 12
+    
+    --> Non-Nullable type & Nullable type
+        1.1 Non-Nullable type : cannot accepr a null
+        1.2 Nullable : can accept a null
+
+    --> Global & Local variable --> can have both implicit  and explicit assignment
+        |-> must have an implicit assignment
+
+        implicit assignment: declaration and definition in one line
+
+    Variable Declaration & definition:      val a: Int = 10000
+                                            val d: Double = 100.00
+                                            val f: Float = 100.00f
+                                            val l: Long = 1000000004
+                                            val s: Short = 10
+                                            val b: Byte = 1
+
+    Categorize of variable:
+    ----------------------
+        1. Numeric
+        2. Character    : var s:Char
+        3. Boolean      : var s:Boolean
+        4. String   : var s:String
+            1: Escaped:  " ... " : It evaluates and prints \n,\t etc.
+
+                val text1 ="Hello, JavaTpoint"  
+                //or  
+                val text2 ="Hello, JavaTpoint\n"  
+                //or  
+                val text3 ="Hello, \nJavaTpoint"  
+
+            2: Raw: """ .... """ --> It prints \n,\t,etc. Doesn't evaluates it
+
+                val text1 ="""  
+                            Welcome   
+                            To  
+                            JavaTpoint  
+                            """  
+    
