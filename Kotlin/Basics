@@ -1,5 +1,7 @@
 Variable:
 --------
+    --> All variables are object
+
     --> statically types(Type of variable must be determined during compile time)
 
         1.1 Meta type       : explicitely mentioning the type
@@ -22,6 +24,9 @@ Variable:
                                             val l: Long = 1000000004
                                             val s: Short = 10
                                             val b: Byte = 1
+
+    Type of variable: variableName::class.simpleName    // Gives : type
+                      variableName::class.qualifiedName // Gives : kotlin.type
 
     Categorize of variable:
     ----------------------
