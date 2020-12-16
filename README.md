@@ -1,2 +1,2 @@
 # Learning-Pad
-Stuffs consisting my day-to-day technical learnings
+Stuffs consisting of my day-to-day technical learnings
