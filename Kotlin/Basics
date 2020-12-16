@@ -113,7 +113,7 @@ Constants:
 
 Accepting Inputs:
 ================
-
+    // These variables are considered as nullable type variable implicitely
     -var sStr = readLine()
 
     -var num:Int = Integer.valueOf(readLine())
@@ -123,3 +123,10 @@ Accepting Inputs:
             
     -var objScanner = Scanner(System.`in`)
      var value = objScanner.nextInt()
+
+Output methods:
+==============
+
+    println()
+    print()
+
