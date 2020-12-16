@@ -98,3 +98,28 @@ Variable:
                 
                 -- val aInt: Int? = a as? Int
                     |-->  return null if the attempt was not successful
+
+Constants:
+=========
+    val keyword:    Used to declare constant variable
+    -----------
+
+    val num:Int = 1; //can't be changed
+
+    or
+
+    val num:Int;
+    num = 1; //Now can't be changed
+
+Accepting Inputs:
+================
+
+    -var sStr = readLine()
+
+    -var num:Int = Integer.valueOf(readLine())
+                                                                |-> mapping string to int
+    -var (first,second,third) = readLine()!!.split(':').map(String::toInt)
+                                          |-> Assertion op
+            
+    -var objScanner = Scanner(System.`in`)
+     var value = objScanner.nextInt()
