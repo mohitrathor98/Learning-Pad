@@ -1,0 +1,41 @@
+Functions:
+---------
+
+    -- sub-routine
+    
+    -- By default, function returns "Unit" type(Equivalent to void in c/c++)
+
+    fun <function name>([<Arguments,...>]) : [<Return type>] {
+        ....
+    }
+
+    Call By name method: function without any arguments
+
+    Pass By Value method: function with some arguments
+
+    Default Arguments:
+    -----------------
+
+        fun defaultArgument(iFirst:int = 3,iSecond:Int,iThird:Int = 5){
+
+        }
+
+        calling: defaultArgument(iSecond=21) 
+                  defaultArgument(12,21) // iFirst =12, iSecond =21
+                  defaultArgument(12,21,11)
+
+    Variable Arguments:
+    ------------------
+    // vararg aNum:Int :: accepts int values only
+    fun varArgsMethod( vararg aNum:Int, num:Int){
+        for (i in aNum){
+            println(i)
+        }
+    }
+
+    varArgsMethod(12,1,2,3,4,2,3,4,1,22,5,iFirst = 1) // all the values will get grouped together
+                                                    // for other arguments we have to give name arguments
+
+    var arrNum = intArrayOf(12,21,14,22)
+    varArgsMethod(*arrNum,iFirst = 1)
+                // To pass array

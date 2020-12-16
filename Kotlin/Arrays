@@ -1,0 +1,39 @@
+Arrays
+======
+
+    - ordered collection of elements 
+        --> can be homogeneous/hetrogeneous
+
+    - create Using:
+        --> arrayOf()
+        --> Array() constructor
+
+
+    var agnum = arrayOf(10,12,"CTE","R",122,2.3)
+
+    var afNum = arrayOf<Int>(10,12,3)
+
+    for (i in 0..10){
+        afNum += i*i
+        println(afNum[i])
+    }
+
+    Length of array: var length = afNum.size
+    ---------------
+
+    Associative for loops
+    ---------------------
+        //elements of array
+        for (i in afNum){
+            println(i)
+        }
+
+        //Indices of array
+        for (i in afNum.indices){
+            println(i) 
+        }
+
+        for ((key,value) in afNum.withIndex()){
+            // key-value pair combination
+            // key-index , value-value of array
+        }
