@@ -1,0 +1,80 @@
+Access Specifiers:
+-----------------
+    - protected 
+    - public 
+    - private
+    - internal : Same as public, but only visible inside the module(program)
+
+Demo:
+----
+    // By Default, Access modifier is public
+    class Emp{
+        var eNo:Int = 2;
+        internal var eName:String = "Magesh"; // Must be intialized like this or can use constructor or be abstract
+
+        fun info(){
+            println();
+        }
+    }
+
+    fun main(){
+        var objEmp = Emp()
+        objEmp.info();
+    }
+
+Static:
+------
+
+    class Emp{
+        var eNo:Int = 12;
+        internal var eName:String = "Babu";
+
+        companion object{ // static variables under companion object
+            var dept:String = "Training";
+
+            fun get(){
+
+            }   
+        }
+
+        fun info(){
+            println();
+        }
+    }
+
+    fun main(){
+        var objEmp = Emp()
+        objEmp.info();
+
+        Emp.get() // call using class name
+        Emp.dept
+    }
+
+Constructors:
+------------
+    1. Primary Constructor : 
+            -- Default constructor
+
+            Two ways:
+
+                1. init {
+                    this.name = " "
+                    this.eNo = 0
+                    this.dept = " "
+                }
+
+                2. class Emp(name:String)
+                    or
+                    class Emp constructor (name:String)
+
+    2. Secondary constructor:
+            -- Parametrized constructor
+
+            constructor(n:String,d:String){
+                this.name = n
+                this.dept = d
+            }
+
+            constructor(name: String,dept:String):this(name,dept){
+                
+            }
