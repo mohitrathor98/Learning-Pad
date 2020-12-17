@@ -18,6 +18,13 @@ Arrays
         println(afNum[i])
     }
 
+    Dynamic Arrays:
+    --------------
+        var arr = arrayOf<int>()
+        for (i in 0..10){
+            arr += Scanner.nextInt()
+        }
+
     Length of array: var length = afNum.size
     ---------------
 
