@@ -76,5 +76,39 @@ Constructors:
             }
 
             constructor(name: String,dept:String):this(name,dept){
-                
+
             }
+
+Types of classes:
+----------------
+
+    1. Data class   :: having only getter and setter methods
+        data class DataClassDemo(var num:Int = 12,var name:String = "Magesh"){}
+        
+        main(){
+            var obj:DataClassDemo = DataClassDemo()
+            println("Num = ${obj.component1()}")
+            println("Num = "+obj.num)
+        }
+
+    2. Sealed class :: used to implement Upcasting
+                        |--> Base class reference pointing to a derived class object
+
+    3. Final class :: classes which cannot be inherited
+
+
+    4. Enum class
+
+        data class Moile(val name:String, val color:MobileColor)
+
+        enum class MobileColor(var ival:Int){
+            Gold(12),
+            Silver(13),
+            Black(15)
+        }    
+
+        val mob1 = Mobile("Iphone",MobileColor.Gold)
+        mob1.color //Gold
+        mob1.color.ival // 12
+
+    5. Abstract class
