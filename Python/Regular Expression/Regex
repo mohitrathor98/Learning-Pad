@@ -97,3 +97,51 @@ MetaCharacters
 
         Expression: '[0-9]{2,4}' (matches atleast 2 digits but not more than 4)
                     String: ab123csde           : 1 match(match at ab123csde)
+                    String: 12 and 1345673      : 3 matches(12,3456,73)
+                    String: 1 and 2             : No match
+
+    Alternation(|)
+    ===========
+        --> or operator
+        
+        Expression: 'a|b' (either a or b)
+                    String: cde     : No match
+                    String: ade     : 1 match (a in ade)
+                    String: acbdea : 3 match
+
+    Group(())
+    =====
+        --> Parantheses used to group sub-patterns
+
+        Expression: (a|b|c)xz {any string that matches either a or b or c followed by xz}
+                    String: ab xz       : No match
+                    String: abxz        : 1 match(match at abxz)
+                    String: axz cabxz   : 2 matches (axz and bxz)                 
+    
+    Backslash(\)
+    =========
+        --> To escape various characters
+
+        '\$a' : match if a string contains $ followed by a
+          |---> $ is not being interpreted in a special way
+
+    
+    Special Sequences:
+    =================
+        -- '\A' : Matches if specified characters are at teh start of a string
+
+            Expression: '\Athe'
+                        String: the sun     : match
+                        String: In the sun  : no match
+
+        -- '\b' : Matches if specified character are at the beginning or end of a word
+
+            Expression: '\bfoo' {foo at the beggining of any word}
+                        String: football    : Match
+                        String: a football  : Match
+                        String: afootball   : No Match
+
+            Expression: 'foo\b' {foo at the end of any word}
+                        String: the foo         : Match
+                        String: the afoo test   : Match
+                        String: the afootest    : Match
