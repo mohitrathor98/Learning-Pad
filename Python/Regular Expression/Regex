@@ -12,3 +12,53 @@ MetaCharacters
                      String: 'ac'       : 2 matches
                      String: 'Hey Jude' : No Match
                      String: 'abc de ca': 5 matches
+
+    Range of characters(-):
+    =======================
+        --> [a-e] : [abcde]
+        --> [0-39] : [01239]
+
+    Complement(^) {caret symbol at the start of the square bracket means negation}
+    =============
+        --> [^abc] : any char except a,b or c
+        --> [^0-9] : any non-digit char
+
+    Period(.)
+    =========
+        --> Mathches any single character, except newline "\n"
+
+        Expression: '..' {matches any two chars except new line}
+                    String: a       : No match
+                    String: ac      : 1 match
+                    String: acd     : 1 match
+                    String: abcd    : 2 match
+
+    Caret(^)
+    ========
+        --> Used to check if a string starts with certain character
+
+        Expression: '^ab'
+        ==========
+                    String: abc : 1 match
+                    String: acb : No match
+
+    Dollar($)
+    =========
+        --> used to check if string ends with a certain char
+
+        Expression: 'a$'
+                    String: a       : 1 match
+                    String: formula : 1 match
+                    String: cab     : No match
+
+    Star(*)
+    =======
+        --> zero or more occurences of the pattern
+
+        Expression: ma*n (zero or more occurences of ma followed by n)
+                    String: mn      : 1 match
+                    String: man     : 1 match
+                    String: maan    : 1 match
+                    String: main    : No match (a is not followed by n)
+                    String: Woman   : 1 match
+        
