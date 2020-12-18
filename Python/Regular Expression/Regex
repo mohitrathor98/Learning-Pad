@@ -145,3 +145,29 @@ MetaCharacters
                         String: the foo         : Match
                         String: the afoo test   : Match
                         String: the afootest    : Match
+
+        -- '\B' : opposite of \b.
+                  Matches if specified characters are not at the beginning or end of a word
+
+        -- '\d' : matches any decimal digit
+                  Equivalent to [0-9]
+
+                  Expression: '\d'
+                            String: 12abc3  :  3 matches
+                            String: Python  :   No match
+
+        -- '\D' : matches any non-decimal digit
+
+        -- '\s' : matches whitespace character in a string
+        -- '\S' : matches all non-white characters in a string
+
+        -- '\w' : matches any alphanumeric chars
+                  Equivalent to [a-zA-Z0-9_]
+                  '_' is also an alpha-numeric character
+
+        -- '\W' : any non-alphanumeric character
+
+        -- '\Z' : matches any specified character at the end of the string
+                 
+                 Ex: Python\Z :: I like Python :: match
+                              :: I like python programming :: no match
