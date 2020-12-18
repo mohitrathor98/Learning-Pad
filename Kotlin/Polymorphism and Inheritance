@@ -1,0 +1,138 @@
+Polymorphism:
+===========
+
+Generic Method:
+==============
+
+    fun <T> divideNumbers (tNumerator:T) where T:Number {
+                                         --------------
+                                                |--> Only accepts numeric class types (byte,short,int, double)
+    }
+
+    divideNumbers(12)
+    divideNumbers(1.2)
+    divideNumbers(2.9f)
+
+Generic class:
+=============
+
+    class GenericClass <T>{
+        var tNum:T;
+        constructor(tTemp:T){
+            this.Number = tTemp
+        }
+
+        fun dispInfo(){
+            println("Value of tNumber = $tNumber")
+        }
+    }
+
+    fun main(args:Array<String>){
+        var objGenericClass:GenericClass<Int> = GenericClass<Int> (12)
+
+        var objGenericClassString:GenericClass<String> = GenericClass<String>("Generic")
+    }
+
+Inheritance:
+===========
+    -- used to associate the classes combined together
+
+    -- open Keyword: 
+       ============
+                    --- all classes are final by default, we need to open class for inheritance
+                    --- To override functions and variables of base class we need to delare those as open also
+
+    -- super keyword:
+       =============
+                    --- To call Parametrized constructor of base class super is required(Multiple constructors)
+                    --- Primary constructors gets invoked implicitely
+
+    Types:
+        --> Single level    :: Same class should not act both as derived and a base
+
+                open class BaseInfo{
+
+                }
+
+                class DerivedInfo: BaseInfo(){ 
+                                           --
+                                            |--> since, explicit constructor is not defined in base
+                }
+
+
+        --> Multi level     :: Same class must act as both derived and base class
+
+        --> Multiple        :: 
+                -- derived having more than one base information
+                -- we need an interface
+
+
+overriding:
+==========
+
+open class BaseClass{
+    open fun displayInfo(){
+
+    }
+}
+
+open class DerivedClass:BaseClass(){
+    override fun displayInfo(){
+    --------
+        |--> To override the method of base class
+        super.dispInfo()
+    }
+}
+
+class GrandDerived:DerivedClass(){
+    override fun displayInfo(){
+    }
+}
+
+Non-Concrete/Abstract method
+============================
+    |--> While overriding, base class's method may not get called many times, but memory gets allocated
+    |--> so, memory is not getting utilized efficiently
+
+    --> Abstract classes -- only declaration not defintion
+
+        abstract class AbstractClass{
+            abstract fun nonConcreteMethod()
+            fun concreteMethod(){
+                println("Concerete")
+            }   
+        }
+
+        class AbstractImp:AbstractClass{
+            override fun nonConcreteMethod{
+                printn("nonConcreteMethod")
+            }
+        }
+
+Interface:
+=========
+
+    -- Implements multiple inheritance
+
+    interface myInterface{
+        fun displayInfo() // abstract
+    }
+
+    interface yourInterface{
+        fun dispInfo() //abstract
+    }
+
+    open class BaseClassInfo{
+        fun demoFunction(){
+            println("demoFunction")
+        }
+    }
+
+    class InterfaceImpl:BaseClassInfo(), myInterface, yourInterface{
+        override fun displayInfo(){
+
+        }
+        override fun dispInfo(){
+
+        }
+    }

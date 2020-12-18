@@ -94,8 +94,8 @@ Types of classes:
     2. Sealed class :: used to implement Upcasting
                         |--> Base class reference pointing to a derived class object
 
-    3. Final class :: classes which cannot be inherited
-
+    3. Final class :: classes which cannot be inherited(All classes and (methods, data members) of classes are final 
+                        by default and can't be overriden)
 
     4. Enum class
 

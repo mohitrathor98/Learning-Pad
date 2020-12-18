@@ -1,0 +1,14 @@
+Exception Handling
+==================
+    -- used to handle run time errors
+
+
+    try {
+        iResult = iNum/iDen
+    }catch (refException:AirthmeticException){
+
+    } catch (refException:NumberFormatException){
+
+    }  catch (refException:Exception){
+        println("some challenge in code")
+    } 
