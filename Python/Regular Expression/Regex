@@ -72,3 +72,28 @@ MetaCharacters
                     String: maaan   : 1 match
                     String: main    : No match(a is not followed by n)
                     String: Woman   : 1 match
+
+    Question Mark(?)
+    ================
+        --> Matches zero or one occurence of the pattern
+
+        Expression: 'ma?n' (zero or one occurence of ma followed by n)
+                    String: mn      : 1 match
+                    String: man     : 1 match
+                    String: maaan   : no match(more than 1 a)
+                    String: main    : No match
+                    String: Woman   : 1 match
+
+    Braces({})
+    ========
+        --> {n,m} : at least n, and at most m repetitions of the pattern
+
+        Expression: 'a{2,3}' (Atleast 2 a and atmost 3 a)
+                    String: abc dat             : No match
+                    String: abc daat            : 1 match(at daat)
+                    String: aabc daaat          : 2 matches(at aabc and daaat)
+                    String: aabc daaaat         : 2 matches (at aabbc and daaa)
+                    String: aabc daaaaat        : 3 matches(at aabc, daaa and aat)
+
+        Expression: '[0-9]{2,4}' (matches atleast 2 digits but not more than 4)
+                    String: ab123csde           : 1 match(match at ab123csde)
