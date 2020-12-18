@@ -55,10 +55,20 @@ MetaCharacters
     =======
         --> zero or more occurences of the pattern
 
-        Expression: ma*n (zero or more occurences of ma followed by n)
+        Expression: 'ma*n' (zero or more occurences of ma followed by n)
                     String: mn      : 1 match
                     String: man     : 1 match
                     String: maan    : 1 match
                     String: main    : No match (a is not followed by n)
                     String: Woman   : 1 match
-        
+
+    Plus(+)
+    =======
+        --> one or more occurences of the pattern
+
+        Expression: 'ma+n' (one or more occurence of ma follwed by n)
+                    String: mn      : No match(no 'a' character)
+                    String: man     : 1 match
+                    String: maaan   : 1 match
+                    String: main    : No match(a is not followed by n)
+                    String: Woman   : 1 match
