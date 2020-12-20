@@ -1,3 +1,6 @@
+/*
+    Calculate LCM using while loop and if statements
+ */
 fun main(){
 
     print("Two space seperated numbers:: ")
