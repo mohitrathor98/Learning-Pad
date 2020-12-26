@@ -19,3 +19,11 @@ Application of Recursion
     2) Many problems inherently recursive
         --> Tower of hanoi
         --> DFS based traversals
+
+ Tail Recursion
+ --------------
+    ---> Takes less time in compilation
+    ---> Recursive call is at last of function
+    ---> When parent function is nothing to do when child's recursion call is over
+
+    ---> Quick sort is faster than merge sort. One of the reason is tale recursion in quick sort.
