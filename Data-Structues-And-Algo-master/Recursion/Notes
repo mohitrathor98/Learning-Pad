@@ -1,0 +1,21 @@
+Recursion
+---------
+
+    -- A function call itself directly or indirectly
+        Direct: fun() calls itself
+        Indirect: fun1() calls fun2() and fun2() calls fun1()
+
+    -- Base cases are added to stop recursion at some point
+
+
+Application of Recursion
+------------------------
+
+    1) Many algorithm techniques are based on Recursion
+        --> Dynamic Programming
+        --> Backtracking
+        --> Divide and Conquer(Binary Search, Quick Sort and Merge Sort)
+
+    2) Many problems inherently recursive
+        --> Tower of hanoi
+        --> DFS based traversals
