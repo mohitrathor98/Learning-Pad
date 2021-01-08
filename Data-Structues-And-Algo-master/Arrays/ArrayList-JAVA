@@ -13,10 +13,26 @@ ArrayList
 
     1) Adding elements:
        ---------------
-            -- add() method
+            -- al.add() method
             -- add(element) : add an element to the end of an ArrayList
             -- add(int index, element) : adds an element at specific index in ArrayList
 
     2) Changing elements:
        -----------------
-            
+            -- al.set(index, element)
+
+    3) Removing elements:
+       -----------------
+            -- al.remove(element) : if duplicate elements are present, first occurance is used
+            -- al.remove(index) : after removing, all the elements are moved left 
+
+    4) Iterating the ArrayList:
+       -----------------------
+            -- for loop in combination with a get() method
+
+                for(i = 0;i < al.size();i++){
+                    println(al.get());
+                }
+
+            -- for (String str:al)
+                    println(str);

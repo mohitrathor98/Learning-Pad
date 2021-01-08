@@ -6,3 +6,40 @@ Vector
     --> By default, intialized with default value. ==> 0,false,empty strings
     --> can copy a Vector
             v1 = v2
+
+    vector<int> v;
+
+    Iterators:
+    ---------
+        1) begin() : returns an iterator pointing to the first element in the Vector
+        2) end() : returns an iterator to position after last element
+
+        for(auto i = v.begin(); i != v.end(); i++){
+                cout<<*i<<" ";
+        }
+
+    Capacity:
+    --------
+        1) size() : returns the number of elements in the vector
+        2) max_size() : returns max number of elements that vector can hold
+        3) capacity() : returns size of storage currently allocated to vector
+        4) empty() : returns whether the container is empty
+
+    Element access:
+    --------------
+        1) reference operator[index] : v[i]
+        2) at(index) : v.at(index) -- element at index 
+        3) front() : element at front
+        4) back() : element at back
+
+    Modifiers:
+    ---------
+        1) assign() : assigns new value to the vector elements by replacing old ones
+                v.assign(5, 10) // fill vecor with 10 five times
+
+        2) push_back() : push the elements into a vector from the back
+                v.push_back(15)
+
+        3) pop_back() : used to pop or remove elements from the vector from back
+                v.pop_back()
+        
