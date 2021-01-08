@@ -1,0 +1,20 @@
+Scientific computing Libraries in Python
+========================================
+    -- Pandas (Data Structures and Tools)
+    -- NumPy (Arrays & Matrices)
+
+Visualization Libraries in Python
+==================================
+    -- Matplotlib (Plots & Graphs)
+    -- Seaborn (plots: heat maps, time series, violin plots)
+
+ML and Deep Learning Libraries in Python
+========================================
+    -- Scikit-learn (ML: Regression, classification)
+    -- Keras (Deep Learning Neural Nets)
+    -- TensorFlow (DL: Production & Deployment)
+    -- PyTorch (DL: Regression, classification)
+
+Apache Spark
+============
+    -- General-Purpose cluster-computing framework 
