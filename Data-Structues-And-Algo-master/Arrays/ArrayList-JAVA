@@ -1,0 +1,22 @@
+ArrayList
+=========
+
+    --> Dynamic size
+    --> Rich library functions
+
+    --> An ArrayList should be created of non-primitive data types. Ex: Integer
+
+            ArrayList<Integer> al = new ArrayList<Integer>(); or new ArrayList<Integer>(size);
+            al.add(20);
+
+    --> java.util package
+
+    1) Adding elements:
+       ---------------
+            -- add() method
+            -- add(element) : add an element to the end of an ArrayList
+            -- add(int index, element) : adds an element at specific index in ArrayList
+
+    2) Changing elements:
+       -----------------
+            

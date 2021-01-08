@@ -1,0 +1,8 @@
+Vector
+======
+    --> Dynamic sized
+    --> Rich library functions
+    --> can be returned from a function
+    --> By default, intialized with default value. ==> 0,false,empty strings
+    --> can copy a Vector
+            v1 = v2

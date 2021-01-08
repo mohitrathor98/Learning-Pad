@@ -1,0 +1,26 @@
+Arrays
+======
+    1) Fixed size arrays
+            
+            // stack Allocated
+            int arr[100]
+            int arr[] = {}
+            int *arr = new int[10] // Heap Allocated
+
+            In Java, Arrays are always allocated on heap
+
+    2) Dynamic sized arrays
+        -- Resized automatically
+            
+        How it is implemented?
+        ----------------------
+            --> Intially a size is allocated
+            --> When array becomes full
+                    -- copy all the elements to a newly allocated array with greater size
+            --> start pushing elements again
+
+        Example:
+            Vector: C++
+            ArrayList: Java
+            List: Python
+
