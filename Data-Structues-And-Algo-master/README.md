@@ -5,3 +5,4 @@ Topics Covered:
 
 1. Bit Magic
 2. Recursion
+3. Arrays
