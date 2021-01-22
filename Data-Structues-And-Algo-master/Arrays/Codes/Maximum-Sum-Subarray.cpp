@@ -24,14 +24,19 @@ int main(){
         cin>>arr[i];
     }
 
-    // Max sum subarray = max(max(maxSumTill(i-1+arr[i],arr[i]))
+    // Max sum subarray = max(array of max(maxSumTill(i-1)+arr[i],arr[i]))
+    int maxSumArray[n];
     int maxSum = 0;
-    int curSum = 0;
     for(int i=0;i<n;i++){
-        curSum += arr[i];
-        if (maxSum < curSum){
-            maxSum = curSum;
-        } 
+        maxSumArray[i] = max(maxSum+arr[i],arr[i]); 
+        maxSum = maxSumArray[i];
+    }
+    
+    maxSum = maxSumArray[0];
+    for(int i=1;i<n;i++){
+        if(maxSum < maxSumArray[i]){
+            maxSum = maxSumArray[i];
+        }
     }
 
     cout<<"Maximum Sum in Given Subarray: "<<maxSum<<endl;
