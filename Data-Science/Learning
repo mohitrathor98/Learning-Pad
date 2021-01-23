@@ -1,0 +1,25 @@
+Types of Learning
+-----------------
+    1) Supervised Learning: 
+            --  When model is getting trained by labelled datasets.
+            --  Labelled dataset is one which have both input and output parameters.
+
+            Based on the datasets we classify supervised learning into two types:
+                --> Classification (Defined labels): Discrete data
+                --> Regression (No labels Defined): Continous data in a range
+
+    2) Unsupervised Learning:
+            --  Target is not given to the model while training 
+            --  Traning model has only input parameter values
+
+            Two Types of Unsupervised Learning:
+                --> Clustering: This technique is used to group data based on different patterns, that a model finds.
+                --> Association: Rule based ML technique, which finds out some very useful relations between parameters of a large data set.
+
+    3) Semi-Supervised Learning:
+            --  Few datasets are labelled
+            --  We use Unsupervised learning to predict labels for unlabelled data.
+            --  Then we feed these labels to supervised learning
+            --  Major use of this technique is with image datasets as larges images datasets are not completely labelled
+
+    4) Reinforcement Learning
