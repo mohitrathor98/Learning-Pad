@@ -1,0 +1,6 @@
+Multithreading
+--------------
+        -- Group of threads combined together and executing it on a one by one basis
+
+        Thread: Sub-unit of a program or indicates the flow of execution
+        ------  

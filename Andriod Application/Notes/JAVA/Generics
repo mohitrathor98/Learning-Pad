@@ -1,0 +1,35 @@
+Generics
+---------
+    --> Applicable from Java 4 & above
+    --> Extension of Method overloading
+                -- if the name, number of arguments and functionality of method remains the same
+                        ==> Then those methods can be replaced in the form of generic representation
+
+    --> Used to create an generalized method & class
+
+    Generic Method
+    --------------
+
+        class Generics{
+            <T> void addNumbers(T first,T second){
+
+            }
+        }
+
+        // Type of T would be known during runtime
+        Generics obj = new Generics();
+        obj.addNumbers(1,2);
+        obj.addNumbers(1.2,2.1);
+        obj.addNumbers("A","A");
+
+
+    Generic Class
+    -------------
+
+        class Generic<T>{
+            T dataMember;
+        }
+
+        Generic<Integer> objInteger = new Generic<Integer>();
+        Generic<Double> objDouble = new Generic<Double>();
+        Generic<String> objString = new Generic<String>();

@@ -1,0 +1,14 @@
+Nested Class
+------------
+    --> Subset of an inner class
+    --> If the Inner class is "static" ==> it is nested class
+    --> We will allocate only one block of memory for the inner class irrespective of number of objects for outer class
+
+        Ex: 
+            class Outer{
+                int data;
+
+                static class MemberInner{
+                    // nested class
+                }
+            }

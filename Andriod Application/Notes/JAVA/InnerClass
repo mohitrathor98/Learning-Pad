@@ -1,0 +1,37 @@
+InnerClass
+----------
+    --> Collection of both homogenous/heterogenous data elements
+    --> Cotains properties and behaviour
+
+    --> class within another class
+    --> 3 different categories
+            -- Member InnerClass:
+
+                    Ex: 
+                        class Outer{
+                            int data;
+                            class MemberInner{
+
+                            }
+                        }
+
+                        Outer objOuter = new Outer();
+                        MemberInner objMemberInner = objOuter.new MemberInner();
+
+            -- Local InnerClass:
+
+                    Ex:
+                        class Outer{
+                            int data;
+                            void localInnerDemo(){
+                                class LocalInner{ 
+                                }
+                            } // scope of LocalInner class
+                        }
+
+            -- Anonymous InnerClass
+                    - Creating an object wihout any name inside another object
+                    Ex:
+                        btnAdd.addActionListner(new newActionListener({
+                                // object is created without its name
+                        }));
