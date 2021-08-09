@@ -1,0 +1,31 @@
+Devops ==> Application life cycle
+
+
+Develop application code ==> continous activity
+
+===> Version Control --> Git (Version control locally) --> Push local repo to remote repo --> Github, Gitlab --> Gitea(Similar to github but runs locally)
+
+Continous build --> package the application 
+increamental activity --> Continous Integration
+
+Maven -->  Continous build tool ==> Takes code from gitea and convert it into package containing files like(.jar, .war, etc)
+        --> Also does testing
+
+Jenkins --> Gets code from gitea --> and invokes maven to do build activity
+        --> Gets code analyzed by SonarQube
+        --> After analysis package is pushed into Artifactory binary repo
+        --> Manages Ansible also
+    
+SonarQube --> Code analysis --> Checks code quality
+
+Aritfactory --> Binary Repository
+            --> a single access point organizing all of binary resources includin libraries, remote artifacts,etc.
+            --> Pushes package into production server
+
+Ansible --> It installs everything required at production server
+        --> it is instructed by Jenkins
+
+Docker --> Ansible can install everything in a docker container(Required softwares may have different version each time, so its cumborsome)
+        --> This container runs on production server
+
+Production Server --> Code package + Jre + Tomcat + DB server , etc
