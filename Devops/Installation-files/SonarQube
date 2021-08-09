@@ -1,0 +1,30 @@
+SonarQube:
+
+    -- Code quality analysis tool
+
+
+Requirements: 
+    * JDK/JRE installed
+    * Configured JAVA_HOME(in .bashrc file put export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64)
+    * Install postgresql
+            -- Define Database and give permission(grant with all priviledges)
+
+
+Installation link: https://kifarunix.com/install-sonarqube-on-ubuntu/
+
+Step 1: Download Sonarqube zip file and unzip
+Step 2: Creat folder /opt/sonarqube
+Step 3: Create sonarqube user
+Step 4: Move unzipped file to /opt/sonarqube
+Step 5: Give permission to /opt/sonarqube to an created sonarqube user
+Step 6: chmod 755
+Step 7: Define sonarqube service
+
+Step 8: edit sonar properties
+            -- DB user credentials
+            -- DB URL
+            -- host: localhost
+            -- cotext (optional)
+
+Step 9: vm.max_map_count= 262144
+Step 10: start service
