@@ -1,3 +1,23 @@
 Dependency related to application
 
-   
+Requirement of Ansible:
+----------------------
+Packages needs to be installed (jre,...)
+Services needs to be started (tomcat,...)
+
+To do above things: 
+    
+    1) We can do manually but it won't be possible if number of servers are in hundreds
+    2) We can use shell scripts -- It requires longer learning curve
+    3) We can use automation tools like Ansible -- We have to write scripts (YAML) -- User friendly and reliable
+
+
+Using YAML we preconfiure the server -- Configuration management
+
+-- Ansible will install and create required run time environment for the application.
+-- Also, deploys app on server.
+
+-- We write playbook for ansible in YAML format. Using SSH access, ansible pushes playbook on remote server
+-- SSH information is present in the inventory file of Ansible.
+
+-- Playbook is a combination of multiple ansible modules designed in python3. So, production server machine must have python3
