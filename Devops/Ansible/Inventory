@@ -1,0 +1,34 @@
+==> ping localhost --> to check connectvity
+
+==> ansible all -i 'localhost,' -m ping -c local  --> pinging in ansible
+    
+    --> -i - Refers to inventory
+    --> localhost, - server name, ',' is to specifiy multiple servers
+    --> ping - module written in python 
+    --> -c - bypassing ssh to work on local 
+
+
+==> /etc/ansible/hosts --> global inventory file, used across entire system
+
+    sudo vi /etc/ansible/hosts  --> it has server ip, domain, group of servers,etc
+
+    create a group:
+    [local]  --> group name
+    localhost --> server name
+
+==> /etc/ansbile/ansible.cfg --> configuration file
+
+    open it and uncomment inventory and give path to hosts inventory file
+
+==> after doing this, we don't need to specify locahost inventory while pinging in ansbile
+
+    ansible all -m ping -c local
+
+==> in hosts inventory file if we specify one more attribute
+
+    [local]
+    localhost ansible_connection=local
+
+    we can specifiy connection type as local.
+
+    Then for pinging:: ansible all -m ping 
