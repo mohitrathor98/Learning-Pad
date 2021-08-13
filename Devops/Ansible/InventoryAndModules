@@ -111,3 +111,26 @@ Creating local confiuration and inventory file
     ansmachine ansible_host=192.168.56.102 ansible_user=devops
 
 ==> ansible ansmachine -m ping  --> this will only work in ansilab directory
+
+==============
+command module
+==============
+
+==> ansible all -m command -a 'echo "hello"'
+    --> echoes hello from all machines available in inventory
+
+==> ansible all -m command -a "cat /etc/hosts"
+    --> shoes content of hosts from all available machines in inventory
+
+===> Instead of command if we use shell module, same output is thrown
+===> even if we don't give any command, it will take shell command by default.
+
+============
+file module
+============
+
+==> ansible all -m file -a 'path=/home/devops/testfile state=touch' --> creates a file
+
+    state=file --> checks if file exists or not
+    state=directory --> creates a directory/checks if exists or not
+    state=absent --> removes directory or file
