@@ -136,3 +136,54 @@ Running Playbook from jenkins
     --> Give file name in playbook path as palybook is present in /var/lib/jenkins/workspace/projectname
 
     Build now --> Ansible playboook will run
+
+========
+Roles
+========
+
+ --> Roles are the strucutred way of writing playbooks
+
+==> mkdir roles
+    vi ansilab/ansible.cfg
+
+    roles_path = /home/devops/ansilab/roles
+
+    mkdir roles/sample --> home directory for sample role
+    mkdir roles/sample/tasks
+    mkdir roles/sample/handlers
+    mkdir roles/sample/vars
+
+==> vi playfile.yaml
+
+    -  hosts: ansmachine
+       roles:
+       - sample
+
+    ansible-playbook playfile.yaml  --> checks if roles is attached to server
+
+Breaking code in file.yaml file into different yaml files in roles
+------------------------------------------------------------------
+
+==> vi roles/sample/vars/main.yaml
+
+    file_path: /home/devops
+
+==> vi roles/sample/tasks/main.yaml
+
+    - name: Create a folder
+      file: 
+        path: "{{ file_path }}/test"
+        state: directory
+      notify: Create a file inside a folder
+
+==> vi roles/sample/handlers/main.yaml
+
+    handlers:
+    - name: Create a file inside a folder
+      file:
+        path: "{{ file_path }}/test/testfile"
+        state: touch
+
+==> ansible-playbook playfile.yaml
+        ---> does same jobs as file.yaml
+
