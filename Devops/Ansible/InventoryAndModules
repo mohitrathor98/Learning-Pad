@@ -134,3 +134,17 @@ file module
     state=file --> checks if file exists or not
     state=directory --> creates a directory/checks if exists or not
     state=absent --> removes directory or file
+
+
+===========
+apt module
+===========
+
+==> for installing Packages, written in playbook
+
+============
+setup module
+============
+
+==> ansible ansmachine -m setup
+        --> displays all the information regarding ansmachine in key:value pairs

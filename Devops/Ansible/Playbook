@@ -1,0 +1,138 @@
+Ansible Playbook
+----------------
+    --> combination of server to be configured and actions required
+
+
+==> sudo vi file.yaml
+   --> write all things below in yaml file except for // - comments
+
+    - hosts: ansmachine // server name
+      tasks:
+      - name: Create a folder
+        file: // module name
+          path: /home/devops/test
+          state: directory
+      - name: Create a file inside a folder
+        file:
+          path: /home/devops/test/testfile
+          state: touch
+
+===> execute: ansible-playbook file.yaml
+
+
+==> Installing Packages
+
+    - hosts: ansmachine
+      tasks:
+      - name: install apache
+        apt:
+          name: apache2
+          state: present
+          update_cache: yes // sudo apt update
+        become: true //apt module will run with sudo previleges
+
+==> execute: ansible-playbook --ask-become-pass apache.yaml ==> asks password for sudo
+
+==> ansible ansmachine -m setup 
+    --> returns all the details of ansmachine in key:value pairs
+    --> "ansible_user_dir" : key which contains path of user--> /home/devops
+
+
+==> modifying file creation yaml file using above information:
+
+    - hosts: ansmachine 
+      tasks:
+      - name: Create a folder
+        file: 
+          path: "{{ ansible_user_dir }}/test"
+          state: directory
+      - name: Create a file inside a folder
+        file:
+          path: "{{ ansible_user_dir }}/test/testfile"
+          state: touch
+
+==> Creating own variables
+
+    - hosts: ansmachine 
+      vars:
+      - file_path: /home/devops
+      tasks:
+      - name: Create a folder
+        file: 
+          path: "{{ file_path }}/test"
+          state: directory
+      - name: Create a file inside a folder
+        file:
+          path: "{{ file_path }}/test/testfile"
+          state: touch
+    
+==> Invoking handlers
+
+    - hosts: ansmachine 
+      vars:
+      - file_path: /home/devops
+      tasks:
+      - name: Create a folder
+        file: 
+          path: "{{ file_path }}/test"
+          state: directory
+        notify: Create a file inside a folder
+      handlers:
+      - name: Create a file inside a folder
+        file:
+          path: "{{ file_path }}/test/testfile"
+          state: touch
+
+    ==> notify invokes the handler only if task makes any change
+    ==> can be used if after changes we need to reload configuration file
+
+=============================
+Running Playbook from jenkins
+=============================
+
+==> Here using a local repo is shown.
+
+    Create a local repo
+        mkdir gitrepo
+        git init
+        git config user.name devops
+        ...
+
+        cat file.yaml
+
+    - hosts: devopsmachine 
+      vars:
+      - file_path: /home/devops
+      tasks:
+      - name: Create a folder
+        file: 
+          path: "{{ file_path }}/test"
+          state: directory
+        notify: Create a file inside a folder
+      handlers:
+      - name: Create a file inside a folder
+        file:
+          path: "{{ file_path }}/test/testfile"
+          state: touch
+
+    Commit the code
+
+==>  Start jenkins 192.168.56.102:8080
+        Create new project
+        Configure:
+            Source code management: provide local repo link in git section:: /home/devops/gitrepo
+
+        Build Now
+
+    --> This will pull the files from local repo
+
+==> To run playbook:
+
+    Go to dashboard ==> configure ==> manage plugins ==> Install ansible with install after restart option
+
+    systemctl restart jenkins
+
+    Go to project ==> configure ==> Source code management ==> at the bottom build drop down ==> Ansible playbook
+    --> Give file name in playbook path as palybook is present in /var/lib/jenkins/workspace/projectname
+
+    Build now --> Ansible playboook will run
