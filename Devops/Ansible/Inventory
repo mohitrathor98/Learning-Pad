@@ -1,3 +1,6 @@
+Pinging and Specifying servers in global inventory file
+--------------------------------------------------------
+
 ==> ping localhost --> to check connectvity
 
 ==> ansible all -i 'localhost,' -m ping -c local  --> pinging in ansible
@@ -6,7 +9,7 @@
     --> localhost, - server name, ',' is to specifiy multiple servers
     --> ping - module written in python 
     --> -c - bypassing ssh to work on local 
-
+    --> all - all the machines in the inventory file
 
 ==> /etc/ansible/hosts --> global inventory file, used across entire system
 
@@ -32,3 +35,79 @@
     we can specifiy connection type as local.
 
     Then for pinging:: ansible all -m ping 
+
+==> ansible local -m ping or ansible localhost -m ping --> can be used to ping specific server in the inventory file
+
+==> cat /etc/hosts
+
+    127.0.0.1    localhost
+    127.0.1.1    devops-virtualbox
+
+    The server has these two names.
+
+    In the inventory file: /etc/ansbile/hosts  --> add the second name also to be used for ssh connection
+
+    -- devops-VirtualBox ansible_user=devops  --> user name for ssh connection
+
+    -- ansible devops-VirtualBox -m ping -k
+        --> -k  -- prompts for ssh password
+
+==> sudo vi /etc/hosts
+    enter 1 more server, i.e, current machine ip
+
+    192.168.56.102   devopsmachine
+
+    -- ping devopsmachine
+    -- ssh devops@192.168.56.102   or    ssh devops@devopsmachine
+    -- exit
+
+    -- sudo vi /etc/ansible/hosts
+
+        devopsmachine ansible_host=192.168.56.102  ansible_user=devops --> ansible will get ip from inventory file itself
+
+    -- ansible devopsmachine -m ping -k
+
+    -- ansible all -m ping -k   --> this will now gets ping-pong from all the three servers
+
+==> creating key pair so that for each ssh server we don't have to give password
+
+    -- ssh-keygen
+        --> it will generate a private and public key in .ssh directory
+    
+    -- ssh-copy-id -i /home/devops/.ssh/id_rsa.pub devops@devopsmachine
+            --> pushing public key into ssh server
+    --> now private key is present in .ssh and public key is present in ssh server, no password is needed
+
+    --> -k is not required now
+
+Making ssh connection password-free in jenkins userspace
+--------------------------------------------------------
+
+==> sudo su
+    su jenkins
+
+    -- whoami
+    -- pwd  --> /var/lib/jenkins  --> anything which is pulled into jenkins is stored here
+
+    -- ping devopsmachine
+    -- ssh devops@devopsmachine
+    -- exit
+    -- ls .ssh --> jenkins userspace has its own .ssh folder, so once again needs to generate keys and 
+                   copy the files to ssh server
+
+Creating local confiuration and inventory file
+-----------------------------------------------
+
+==> mkdir ansilab
+
+==> vi ansible.cfg
+    [defaults]
+
+    inventory = 
+
+==> vi ansiserver  --> inventory file
+    [local]
+
+    ansmachine ansible_host=192.168.56.102 ansible_user=devops
+
+==> ansible ansmachine -m ping  --> this will only work in ansilab directory
