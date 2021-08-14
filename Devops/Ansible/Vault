@@ -1,0 +1,10 @@
+Ansible vault
+=============
+
+==> ansible-vault create secret.txt
+    create password:
+
+==> Content is normally not visible without the password
+
+==> ansible-vault view secret.txt
+    vault password:

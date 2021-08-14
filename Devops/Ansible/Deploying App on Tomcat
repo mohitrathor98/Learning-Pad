@@ -24,6 +24,18 @@ Install opendk11
         update_cache: yes
       become: yes
 
+   ==> since apt is only for debian machines, we need to provide one more things
+      when: ansible_os_family == 'Debian'
+
+==> Make sudo password free
+    
+    In /etc/sudoers
+
+    at last line:
+
+    devops ALL=(ALL) NOPASSWD:ALL
+    jenkins ALL=(ALL) NOPASSWD:ALL
+
 Install and configure tomcat
 ----------------------------
 

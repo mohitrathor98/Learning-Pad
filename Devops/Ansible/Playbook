@@ -18,7 +18,10 @@ Ansible Playbook
           state: touch
 
 ===> execute: ansible-playbook file.yaml
+              ansible-playbook file.yaml --syntax-check ==> Checks and prints any syntax error
+                                                        ==> it doesn't execute the playbook only checks for error
 
+              ansible-playbook file.yaml --check ==> dry runs the modules without executing it
 
 ==> Installing Packages
 

@@ -148,3 +148,52 @@ setup module
 
 ==> ansible ansmachine -m setup
         --> displays all the information regarding ansmachine in key:value pairs
+
+
+=======
+block
+=======
+
+    ==> It lets you execute multiple modules in a single block
+
+    Ex: 
+    - name: Install apache2 on redhat
+      block:
+      - yum:
+         name: httpd
+         state: present
+       
+      - service:
+         name: httpd
+         state: started
+
+      when: ansible_os_family == 'RedHat'
+      become: yes
+
+===============
+Error handling
+===============
+
+    - tasks:
+       - name: Folder and File creation
+         block:
+         - name: create a folder
+           file:
+             path:
+             state:
+
+         - name: create a file
+           file:
+             path:
+             state:
+
+         rescue:
+         - name:
+         ....
+
+
+         always:
+         - name: Executing always
+           debug: msg = "Happy Ending"
+
+    ==> If any module in block fails, it gets into rescue block
