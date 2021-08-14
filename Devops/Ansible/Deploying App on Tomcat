@@ -1,0 +1,29 @@
+==> Get Tomcat from tomcat site and unarchive it
+    webapp file will be stored in tomcat/webapps directory
+
+
+==> vi webapp.yml
+
+    - hosts: ansmachine
+      roles:
+        - tomcat
+
+==> anasible-galaxy init roles/tomcat
+
+==> vi roles/tomcat/tasks/main.yml
+
+    - name: create a folder
+      file:
+        path: /home/devops/WebApps
+        state: directory
+    
+    - name: Get tomcat tar file
+      get_url:
+        url: "url of tomcat tar.gz file"
+        dest: /home/devops/WebApps
+
+    - name: Unarchive tomcat tar file
+      unarchive:
+        src: /home/devops/WebApps/apache-tomcat.....tar.gz
+        dest: /home/devops/WebApps
+

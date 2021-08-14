@@ -178,7 +178,6 @@ Breaking code in file.yaml file into different yaml files in roles
 
 ==> vi roles/sample/handlers/main.yaml
 
-    handlers:
     - name: Create a file inside a folder
       file:
         path: "{{ file_path }}/test/testfile"
@@ -186,4 +185,7 @@ Breaking code in file.yaml file into different yaml files in roles
 
 ==> ansible-playbook playfile.yaml
         ---> does same jobs as file.yaml
+
+==> ansible-galaxy init roles/newrole
+      --> This create newrole directory with all default directories and yml files
 
