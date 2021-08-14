@@ -6,9 +6,26 @@
 
     - hosts: ansmachine
       roles:
+        - jdk
         - tomcat
 
 ==> anasible-galaxy init roles/tomcat
+==> ansible-galaxy init roles/jdk
+
+Install opendk11
+----------------
+
+==> vi roles/jdk/tasks/main.yml
+
+    - name: Install openjdk 11
+      apt: 
+        name: default-jdk
+        state: present
+        update_cache: yes
+      become: yes
+
+Install and configure tomcat
+----------------------------
 
 ==> vi roles/tomcat/tasks/main.yml
 
@@ -27,3 +44,58 @@
         src: /home/devops/WebApps/apache-tomcat.....tar.gz
         dest: /home/devops/WebApps
 
+==> To avoid use of internet due to downloading
+
+    --> Copy paste tar file into /home/devops/ansilab/roles/tomcat/files
+    --> vi roles/tomcat/tasks/main.yml
+
+        unarchive
+          src: filename.tar.gz
+          dest: /home/devops/WebApps
+
+==> Deploy war file
+
+    Copy war file to roles/tomcat/files
+
+    vi roles/tomcat/tasks/main.yml
+
+    - name: Deploy the application
+      copy:
+        src: Demo.war
+        dest: " {{ ansible_user_dir }}/WebApps/apache-tomcat-.../webapps"
+
+Changing port number on which tomcat will run
+---------------------------------------------
+
+==> Copy tomcat conf/server.xml to roles/tomcat/templates
+==> In roles/tomcat/templates/server.xml change port number of tomcat from "8080" to "{{ tomcat_port }}"
+==> rename /templates/server.xml to server.xml.j2
+
+==> in roles/tomcat/vars/main.yml
+
+    tomcat_port: 14014
+
+==> in roles/tomcat/tasks/main.yml
+
+    - name: change tomcat port
+      template:
+        src: server.xml.j2
+        dest: "{{ ansible_user_dir }}/WebApps/apache-tomcat-../conf/server.xml"
+
+==> This will replace key value(tomcat_port) in the destination folder, it doesn't replace whole file
+
+
+Start the tomcat server
+-----------------------
+
+==> in roles/tomcat/tasks/main.yml
+
+    - name: start the server
+      shell: " {{ ansible_user_dir }}/WebApps/apache-tomcat../bin/startup.sh" --> This will start tomcat but process will get 
+      killed when ansible-playbook stops its run
+
+      to avoid that:
+      shell: "nohup {{ ansible_user_dir }}/WebApps/apache-tomcat../bin/startup.sh"
+              --> nohup pushes tomcat server to run in background
+      
+==> 192.168.56.102:14014/Demo2 --> to see app in browser
