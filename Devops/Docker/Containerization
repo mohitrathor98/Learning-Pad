@@ -1,0 +1,26 @@
+What?
+----
+
+APP: abc.war
+
+Dependency: JDK/JRE, Tomcat
+
+Installed it using Ansible playbook >>> on the server
+
+
+==> If we wanted to deploy two apps with  conflicting dependencies
+
+    APP1 --> JDK14
+    APP2 --> JDK11
+
+==> We can create container for each app with each container has its own version of software
+==> Containers are seperate with each other. one can't access another
+
+==> Containers doesn't have their own OS. They share a common OS which is system OS.
+
+==> Container is virtualization at application level ==> APP environment ==> Uses file system
+==> Virtual Machine is virtualization at machine level
+
+==> Container is a process while Image is a sitting binary information with which container is created
+
+==> Containers can share their data using host machine common file location
