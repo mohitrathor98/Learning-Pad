@@ -9,7 +9,7 @@
         - jdk
         - tomcat
 
-==> anasible-galaxy init roles/tomcat
+==> ansible-galaxy init roles/tomcat
 ==> ansible-galaxy init roles/jdk
 
 Install opendk11
