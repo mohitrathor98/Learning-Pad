@@ -1,0 +1,66 @@
+==> service docker status
+==> service docker start
+==> docker version
+==> docker run hello-world --> To check if docker installation is correct
+
+==> docker image ls --> list all docker images
+
+==> docker container run -it ubuntu:18.04 /bin/bash --> it will search for ubuntu18.04 and run it(if not installed, installs it)
+            --> i - interactive
+            --> t - terminal
+            --> /bin/bash - command must be used with flag -it so that we can use shell commands(like ls,cp,etc)
+
+    ---> It creates a new container every time it runs
+
+==> docker container run -d -P tomcat:10
+        --> d - run in detached form(background)
+        --> P - expose to external port
+    ==> here port number generated will change at every restart
+
+==> docker container run -d -p 14010 tomcat:10 --> we can decide port
+
+==> docker container ls --> see all running container
+
+==> docker container ls -a --> see all containers with their running status
+
+==> docker container start Container_ID/Container_Name  --> to start again the container
+      -> docker container start 6ce818...
+      -> docker container start inspiring_clarke
+
+==> docker container attach inspiring_clarke ---> It attaches to running container/ enter the container
+        ---> When we exit the attached container, container will stop running
+
+==> docker container exec -it inspiring_clarke /bin/bash
+         ---> enter container but when we exit container still runs
+
+==> docker container stop inspiring_clarke
+==> docker container restart inspiring_clarke
+
+==> docker container cp ./Demo.war inspiring_clarke:/bin
+        --> copies Demo.war from host machine to container
+
+Extracting and pushing an Image of a container to a remote server
+-----------------------------------------------------------------
+
+==> docker container commit inspiring_clarke testimage
+        --> Commit inspiring_clarke container files into new image container testimage
+
+==> docker image ls
+==> docker container run -it testimage /bin/bash
+        --> creates a new container with image testimage
+        --> this container is exact replica of original container inspiring_clarke
+
+==> hub.docker.com ==>sign in 
+
+==> docker image tag testimage:latest docker_user_id/name:version
+        ---> docker image tag testimage:latest morathoe/t001:1.01
+
+==> docker login
+    username:
+    password:
+
+==> docker image push morathoe/t001:1.01 ==> pushes to repo
+
+==> docker logout
+
+==> docker image pull morathoe/t001:1.01 ==> pull the image
