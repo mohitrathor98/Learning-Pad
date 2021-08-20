@@ -39,8 +39,11 @@
 ==> docker container cp ./Demo.war inspiring_clarke:/bin
         --> copies Demo.war from host machine to container
 
+==> docker container rename inspiring_clarke ubuntu18 --> renames the container 
+
+-----------------------------------------------------------------------------------------
 Extracting and pushing an Image of a container to a remote server
------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
 
 ==> docker container commit inspiring_clarke testimage
         --> Commit inspiring_clarke container files into new image container testimage
@@ -64,3 +67,4 @@ Extracting and pushing an Image of a container to a remote server
 ==> docker logout
 
 ==> docker image pull morathoe/t001:1.01 ==> pull the image
+------------------------------------------------------------------------------------------

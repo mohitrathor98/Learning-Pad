@@ -1,0 +1,6 @@
+==> docker container inspect ubuntu18
+        --> Gives details related to container
+        --> Id, network config, etc
+
+==> docker network ls  --> lists all the network the engine knows about
+==> docker network inspect bridge --> details of network named bridge
