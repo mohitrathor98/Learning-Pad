@@ -1,9 +1,11 @@
 ==> service docker status
 ==> service docker start
+
 ==> docker version
 ==> docker run hello-world --> To check if docker installation is correct
 
 ==> docker image ls --> list all docker images
+
 
 ==> docker container run -it ubuntu:18.04 /bin/bash --> it will search for ubuntu18.04 and run it(if not installed, installs it)
             --> i - interactive
@@ -12,6 +14,8 @@
 
     ---> It creates a new container every time it runs
 
+
+
 ==> docker container run -d -P tomcat:10
         --> d - run in detached form(background)
         --> P - expose to external port
@@ -19,9 +23,13 @@
 
 ==> docker container run -d -p 14010 tomcat:10 --> we can decide port
 
+
+
 ==> docker container ls --> see all running container
 
 ==> docker container ls -a --> see all containers with their running status
+
+
 
 ==> docker container start Container_ID/Container_Name  --> to start again the container
       -> docker container start 6ce818...
@@ -33,6 +41,8 @@
 ==> docker container exec -it inspiring_clarke /bin/bash
          ---> enter container but when we exit container still runs
 
+
+
 ==> docker container stop inspiring_clarke
 ==> docker container restart inspiring_clarke
 
@@ -40,6 +50,29 @@
         --> copies Demo.war from host machine to container
 
 ==> docker container rename inspiring_clarke ubuntu18 --> renames the container 
+
+
+==> docker container rm name_of_container --> removes container
+
+
+==> docker container run -it -v /home/devops/database:/opt/FromHost ubuntu18 
+        |--> creates a volume FromHost in container and sync it with database directory on host machine
+
+        |--> Contents can be synched from host to container and vice-versa
+
+        |--> If we sync same folder with another container, we can sync data between two containers
+
+Create a named volume
+---------------------
+
+==> docker volume ls 
+==> docker volume create volume_name
+        | --> creates a volume
+
+==> docker container run -it -v volume_name:/opt/FromHost ubuntu18  
+
+==> docker volume inspect volume_name
+
 
 -----------------------------------------------------------------------------------------
 Extracting and pushing an Image of a container to a remote server

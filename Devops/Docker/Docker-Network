@@ -4,3 +4,16 @@
 
 ==> docker network ls  --> lists all the network the engine knows about
 ==> docker network inspect bridge --> details of network named bridge
+    --> By default any running container is connected to the bridge network
+
+
+==> docker network create name_of_network --subnet 192.168.20.0/24
+        |--> creates a new network
+
+==> docker container run -it --net name_of_network ubuntu18 --> connects container to new network
+
+==> docker network connect bridge ubuntu18 --> another interface is created to connect to net bridge
+
+==> docker network disconnect name_of_network ubuntu18 --> disconnects network
+
+==> docker network rm name_of_network --> removes network
