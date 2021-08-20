@@ -1,0 +1,41 @@
+----------------------------------------------------------------------
+==> docker container run docker/whalesay cowsay "An imp message"
+
+Writing Dockerfile for above:
+
+==> vi Dockerfile
+        FROM docker/whalesay:latest
+        CMD echo "An imp message" | cowsay
+
+    -- CMD - command to run while cotnainer run
+    -- cowsay will run and message will be echoed
+
+==> docker build -t whale0.1 .  --> . - gets Dockerfile
+        -- whale0.1 - image name given after build, we can give anything
+
+==> docker container run whale0.1
+-----------------------------------------------------------------------
+
+==> vi HelloWorld.java
+==> javac HelloWorld.java
+
+==> vi manifest.txt
+
+    Manifest-Vesion: 1.0
+    Created-By: training
+    Main-Class: HelloWorld
+
+==> jar cfm HelloWorld.jar manifest.txt HelloWorld.Class
+
+        --> This creates a jar file: HelloWorld.jar
+        --> This jar file can be run anywhere jvm is installed
+==> java -jar HelloWorld.jar
+
+==> vi Dockerfile
+
+    FROM openjdk:11             --> pulls openjdk image
+    WORKDIR /opt/javaapp        --> creates and changes working directory
+    COPY HelloWorld.jar .       --> copy from source to image
+    CMD java -jar HelloWorld.jar 
+
+==> docker image build -y javahello .  --> This dot indicates /home/devops/java and also takes Dockerfile from this path
