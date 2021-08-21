@@ -1,0 +1,28 @@
+----------------------------------------------------------------------------------------------------------------
+==> Let's say we have to deploy our app on mutiple servers.
+    -- Now there can be 100 of servers required
+
+==> Using docker swarm, we can assign one node as manager node(master node), and all other server can 
+    
+    join as worker node.
+
+==> at manager node run --> docker swarm init
+==> at worker nodes run --> docker swarm join
+
+==> Now manage from manager node
+
+    --> docker service create <image_name> <number of replicas>
+            --> this command will create specified number of containers of the given image into the servers
+-----------------------------------------------------------------------------------------------------------------
+
+==> docker swarm init --advertise-addr 192.168.56.102
+
+==> docker node ls
+
+==> docker service ls
+==> docker service create --name pyservice --replicas 3 --publish 12001:80 prakaram/sayhello:latest
+        --> pyservice        -- Service name
+        --> prakram/sayhello -- Image name
+    
+==> docker service ps pyservice --> since only one node is currently in swarm so 3 replicas on same node
+==> docker container ls
