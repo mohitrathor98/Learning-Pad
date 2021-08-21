@@ -60,3 +60,35 @@ Writing Dockerfile for above:
     WORKDIR /opt/javaapp
     COPY HelloWorld.jar
     CMD java -jar HelloWorld.jar    
+
+Deploying War file in tomcat environment
+-----------------------------------------
+
+==> vi Dockerfile
+
+    FROM tomcat:10
+    COPY NewApp.war /usr/local/tomcat/webapps
+
+==> docker image build -t webapp .
+
+==> docker container run -d -p 14013:8080 webapp
+
+Deploying war file creating tomcat environment in an os
+-------------------------------------------------------
+
+==> vi Dockerfile
+
+    FROM ubuntu:18.04
+    WORKDIR /opt/java
+    ADD jdk-12..,tar.gz .                   --> file is downloaded into the folder
+    ENV JAVA_HOME /opt/java/jdk-12.0.1      --> Adding java to path
+    ENV PATH $PATH:$JAVA_HOME/bin
+    WORKDIR /opt/tomcat
+    ADD apache-tomcat...tar.gz .                              --> unarchives tomcat in working directory
+    COPY NewApp.war /opt/tomcat/apache-tomcat..../webapps
+    EXPOSE 8080
+    CMD ["/opt/tomcat/apache-tomcat../bin/catalina.sh","run"] --> Runs tomcat 
+    
+==> docker image build -t webapp .
+
+==> docker container run -d -p 14013:8080 webapp
