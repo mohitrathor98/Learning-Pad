@@ -1,0 +1,23 @@
+----------------------------------------------------------
+Using jenkins to build image and deploy application
+----------------------------------------------------------
+
+==> mkdir target
+
+==> copy war file to target
+
+==> git init --> git commit --> in dockrepo folder
+
+==> sudo usermod -aG docker jenkins --> adding docker to jenkins user
+
+==> create jenkins project
+
+==> In git repo give repo address 
+
+==> In build --> select execute shell
+
+    docker container run -p -d 12012:8080 -v target:/usr/local/tomcat/webapps <Image name>
+
+    OR
+
+    docker service create --name pyservice --replicas 3 --publish 12013:8080 <Image name> 
