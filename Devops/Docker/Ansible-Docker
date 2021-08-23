@@ -1,0 +1,47 @@
+==> vi doc1.yaml
+
+    - hosts: ansmachine
+      tasks:
+        -name: Build the image
+         shell:
+           cmd: docker image build -f /home/devops/webapp/Dockerfile -t webapp2 /home/devops/webapp
+
+        -name: create the container
+         shell:
+           cmd: docker container run -d -P webapp2
+
+==> ansible-playbook doc1.yaml
+
+
+==> vi doc2.yaml
+
+    -hosts: ansmachine
+     tasks:
+     - name: Build the image
+       docker_image:
+         build:
+           path: /home/devops/webapp                    --> fodler where tar,war files present
+           dockerfile: /home/devops/webapp/Dockerfile   
+           pull: yes                                    --> if image mentioned in Dockerfile is not present then it will pull
+         name: webapp3
+         tag: "2.1"
+         source: build
+
+     - name: Create container
+       docker_container:
+         name: Web_App
+         image: webapp3:2.1
+         state: started
+         detach: yes
+         recreate: yes
+         published_ports: 14014:8080 
+
+==> Service
+     - name: create docker service
+       docker_swarm_service:
+         name: Web_Service
+         image: webapp3:2.1
+         publish:
+         - published_port: 15014
+           target_port: 8080
+         replicas: 3
