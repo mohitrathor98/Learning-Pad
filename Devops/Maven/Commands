@@ -1,0 +1,44 @@
+==> mvn archetype:generate 
+        --> Generates different archetypes
+        -->  creates a folder structure 
+
+==> ls
+project
+
+==> tree project
+    --> it shows folder structure with a App.java file and its test file AppTest.java
+    --> pom.xml file with all details
+
+
+==> Inside project folder: mvn verify
+    --> whenever change in code mvn verify checks 
+
+==> mvn compile
+
+==> mvn clean
+    --> cleans previously compiled files
+
+==> mvn test
+
+==> outside project folder: mvn archtype:generate -DgroupId=com.devops -DartifactId=Demo2 -DarchetpeArtifactId=maven-archtype-webapp -DinteractiveMode=false
+
+        --> generates Demo2 named folder with jsp files,etc
+
+==> inside Demo2 folder: mvn package
+        --> Creates a war file in target folder
+
+
+===================================================
+Creating War file in jenkins
+===================================================
+
+==> push Demo2 contents to repo
+==> Manage Jenkins --> Manage Plugins --> Install maven integration
+
+==> manage jenkins --> global tool configurations --> Add Maven --> In MAVEN_HOME : /usr/share/maven --> obtained by mvn --version
+
+==> Create a project --> maven project
+
+==> Build --> In Goals --> clean Install
+
+==> Build now
