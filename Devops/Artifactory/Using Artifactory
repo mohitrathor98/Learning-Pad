@@ -1,0 +1,17 @@
+==> 192.168.56.102:8082/ui
+
+==> create local repo
+==> select maven
+    repo key --> name of repo
+
+
+==> In jenkins --> install artifactory plugin
+
+    ==> Manage Jenkins --> configure system
+            --> jfrog --> add jfrog instance --> Instance ID: Artifactory
+                                             --> URL: http://192.168.56.102:8082
+                                            --> Username: admin
+                                            --> pAssword: 
+    
+    ==> In Project, configure --> Add post-build action --> Deploy artifacts to Artifactory
+        ==> click on refresh repository --> add repo name  --> save
