@@ -5,6 +5,16 @@
     repo key --> name of repo
 
 
+==> Two repos crated: mvndemo and mvndemorelease
+    --> mvndemo here consists of snapshot versions
+    --> mvndemorelease consists of release versions
+
+    --> in pom.xml file --> if version has snapshot --> after jenkins build will send it to artifactory repo which is set as 
+                                                        snapshot in jenkins config
+
+                        --> if version has release --> after jenkins build will send it to artifactory repo which is set as 
+                                                        release in jenkins config
+
 ==> In jenkins --> install artifactory plugin
 
     ==> Manage Jenkins --> configure system
