@@ -1,0 +1,32 @@
+==> Generate a Mvn Demo folder containing jsp, pom files
+
+==> create a mvn repo in jenkins
+
+==> configure in jenkins --> git repo   
+                         --> Build triggers --> Generic web triggers
+                                            --> Install gitea plugin in jenkins
+                                            --> Install Generic webbook trigger in jenkins
+                                            --> In gitea repo --> settings --> webhooks --> Add webhook     
+                                                        --> Target URL --> Jenkins url: http://192.168.56.102:8080/generic-webhook-trigger/invoke?token=jenkDemo2
+                                            --> Put token name in jenkins build triggers: jenkDemo2
+
+    --> Build --> Goals: clean package
+    
+    --> pre steps: --> Add pre-steps --> Execute sonarqube scanner
+                    --> Task to run --> scan
+                    --> analysis properties:
+                            sonar.projectKey=myDemo2Project
+                            sonar.projectName=jenkinsDemo2-$BUILD_NUMBER
+                            sonar.projectVersion=1.0
+                            sonar.sources=src/main/webapp --> absolute path of mvn jsp file
+                            sonar.verbose=true --> detailed analysis
+
+    --> postbuild --> artifactory
+                  --> Deploy war to a container --> install deploy war plugin
+                        **/*.war
+                        context path: jenkinsDemo2 --> name to access the app
+                        containers: tomcat9.x
+                            credentials: 
+                            url: http://192.168.56.102:10200
+
+--> Build 
