@@ -21,6 +21,11 @@
                             sonar.sources=src/main/webapp --> absolute path of mvn jsp file
                             sonar.verbose=true --> detailed analysis
 
+                            sonar.language=java
+                            sonar.sources=src/main/java
+                            sonar.java.binaries=target/classes
+                            sonar.jacoco.reportPath=target/jacoco.exec
+
     --> postbuild --> artifactory
                   --> Deploy war to a container --> install deploy war plugin
                         **/*.war
@@ -28,5 +33,7 @@
                         containers: tomcat9.x
                             credentials: 
                             url: http://192.168.56.102:10200
+
+    --> if selenium is used for testing then -- download geckodriver for browser and paste it in /usr/bin
 
 --> Build 
