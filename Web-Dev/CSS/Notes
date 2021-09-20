@@ -1,0 +1,30 @@
+favicon 
+=======
+    ==> favourite icon
+    ==> icon showed along with title of webpage
+    ==> website: favicon.cc
+    ==> <link rel="icon" href="favicon.png"> 
+
+
+CSS Box Model
+=============
+    ==> A box which wraps around every html element.
+    ==> Consists of: borders, margins, paddings and the actual content
+
+    --> Content - The content of the box, where text and images appear
+    --> Padding - Clears an area around the content. The padding is transparent
+                - Provides space between content and border
+
+    --> Border - A border that goes around the padding and content
+           
+    
+    --> Margin - Clears an area outside the border. The margin is transparent
+               - Margin provides space between two different html elements
+
+
+    div {
+        width: 300px;
+        border: 15px solid green;
+        padding: 50px;
+        margin: 20px;
+    }
