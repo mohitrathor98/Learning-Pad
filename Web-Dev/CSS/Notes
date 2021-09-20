@@ -80,4 +80,16 @@ CSS position properties
                         -- their position remains the same
 
 
-            --> Absolute: -- 
+            --> Absolute: -- element is positioned according to its parent element position
+                          -- positioning of an element affects other elements also  
+
+                        div {
+                            position:absolute;
+                            
+                            left:100px;     --> 100 px to the left from the parent element
+                            top:100px;
+                        }  
+
+
+            --> fixed: -- element gets fixed despite the scrolling of page
+                    
