@@ -28,3 +28,56 @@ CSS Box Model
         padding: 50px;
         margin: 20px;
     }
+
+CSS Display Property
+====================
+
+    ==> specifies display behaviour of html element
+    ==> CSS syntax: display: value;
+
+        value
+        -----
+            --> block: -- by default some elements are block display.
+                       -- it blocks other elements to stay at side of it
+                       -- acquires whole width on screen
+
+                       Ex: h1,h2.., <p>, <form>,etc
+
+            --> inline: -- it takes as much of the space it requires no more than that
+                        -- height and width properties have no effects.
+
+                        Ex: <span></span>, <a></a>, <img>
+
+            --> inline-block: -- it uses both of the features
+                              -- allows element to stay inline and allows changes with height and width properties
+
+            --> none: -- removes element
+
+
+CSS position properties
+=======================
+
+    ==> By default, all html statement are in static position
+    ==> css syntax: position: value;
+
+        value
+        -----
+            --> static: -- Default for elements
+                        -- elements are postioned as per the html flow
+
+            --> Relative: -- Positions element realtive to the postion it have been as per static flow
+                          -- coordinates: top, bottom, left, right
+
+
+                        div {
+                            position:relative;
+                            
+                            left:100px;     --> 100 px to the left from the position it would have been if static
+                            top:100px;
+                        }  
+
+                        -- when element is postioned as per the relative postioning, all other elements are unaffected
+                        -- their position remains the same
+
+
+            --> Absolute: -- 
