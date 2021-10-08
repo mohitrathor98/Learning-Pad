@@ -1,0 +1,55 @@
+list comprehension
+==================
+
+numbers = [1,2,3,4,5]
+# Creating a new list which is double the numbers which is in numbers list
+double_numbers = [num*2 for num in numbers]
+
+ages = [22,33,27,21]
+odds = [age for age in ages if age%2 == 1]
+
+
+zip(list1,list2)
+================
+
+--> combines to list and creates tuples by taking elements of each list
+
+list1 = ["Marco","Polo"]
+list2 = [1,2]
+list3 = list(zip(list1,list2))
+
+print(list3) ==> [("Marco",1),("Polo",2)]
+
+ 
+
+Enumerate function
+==================
+
+--> Join a list with a number for each element
+
+--> for counter,friend in enumerate(friends):
+        print(counter, friend)
+        ==> 0 friendname ...
+
+--> print(list(enumerate(friends))) ==> [(0,friendname),(1,friendname)]
+
+
+
+Lambda functions
+================
+--> Used to take inputs and return outputs
+
+div = lambda x, y: x/y  ==> x and y are parameters and x/y is what is being returned
+print(div(5,2)) ==> calls lambda function div
+
+
+
+
+First class functions
+=====================
+def greet():
+    print("Hello")
+
+hello = greet
+
+hello() ==> prints "Hello"
