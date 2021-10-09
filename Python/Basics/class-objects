@@ -1,0 +1,14 @@
+class Students:
+    def __init__(self, new_name, new_grade):  # dunder function
+        self.name = new_name
+        self.game = new_grade
+
+    def average(self):
+        return sum(self.grades) / len(self.grades)
+
+# object crated
+# it calls dunder init function
+# new empty object created passed to self on init
+student_one = Students('Rolf', [70,88,90,99])
+
+print(student_one.__class__) # prints class name
