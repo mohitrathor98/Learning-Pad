@@ -1,0 +1,36 @@
+class Students:
+    def __init__(self, new_name, school):  
+        self.name = new_name
+        self.school = school
+        self.marks = []
+
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+
+class WorkingStudent(Students):
+    # child of Students class
+    # this class inherits methods and properties of Parent
+    def __init__(self, name, school, salary):
+        # to get intialized with name, school and marks 
+        # properties we need to call init method
+        # of parent Students
+        super().__init__(name,school) 
+        self.salary = salary
+
+    @property
+    def weekly_salary(self):
+        # property decorator can be used with the methods
+        # with only self argument
+        # and method does nothing but calculate value
+        return self.salary/4
+
+rolf = WorkingStudent('Rolf','MIT',15.50)
+print(rolf.salary)
+rolf.marks.append(57)
+rolf.marks.append(99)
+print(rolf.average())
+
+# since property decorator is used
+# it can be called as property
+print(rolf.weekly_salary) 

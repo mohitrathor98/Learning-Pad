@@ -1,7 +1,10 @@
+#####################################################
 class Students:
-    def __init__(self, new_name, new_grade):  # dunder function
+    def __init__(self, new_name, new_grade):  
+        # dunder function
+        # called when an object is created
         self.name = new_name
-        self.game = new_grade
+        self.grade = new_grade
 
     def average(self):
         return sum(self.grades) / len(self.grades)
@@ -12,3 +15,44 @@ class Students:
 student_one = Students('Rolf', [70,88,90,99])
 
 print(student_one.__class__) # prints class name
+
+######################################################
+
+class Garage:
+    def __init__(self):
+        self.cars = []
+
+
+    def __len__(self):
+        # dunder len method
+        # called when len(object_name) is called
+        return len(self.cars)
+
+    def __getitem__(self,key):
+        # called when object_name[key] is done
+        return self.cars[key]
+
+    def __repr__(self):
+        # representation of object
+        # used in debugging for developers
+        # called using repr(object_name)
+        return f'Garage {self.cars}'
+
+    def __str__(self):
+        # simpler representation of object
+        # mainly used for easily-redeable for users
+        # called when object is printed
+        return f"Garage with {len(self)} cars"
+
+ford = Garage()
+print(ford.cars) # prints []
+
+ford.cars.append("Fiesta")
+print(ford.cars) # prints ["Fiesta"]
+
+print(len(ford)) # prints 1
+
+print(ford[0]) # prints fiesta
+
+print(ford) # calls __str__ method
+print(repr(ford)) 
