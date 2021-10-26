@@ -1,0 +1,59 @@
+####################################################
+# RAISE NotImplementedError
+####################################################
+
+class Garage:
+    def __init__(self):
+        self.cars = []
+
+    def __len__(self):
+        return len(self.cars)
+
+    def add_car(self,car):
+        raise NotImplementedError("We can't do that yet")
+
+
+ford = Garage()
+
+# This raises not implemented Error
+# with a message
+ford.add_car("Fiesta") 
+
+####################################################
+# RAISE TypeError
+####################################################
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def __repr__(self):
+        return f'<Car {self.make} {self.model}>'
+
+ 
+class Garage:
+    def __init__(self):
+        self.cars = []
+
+    def __len__(self):
+        return len(self.cars)
+
+    def add_car(self,car):
+        # Here this method is accepting only
+        # Car class objects
+        if not isinstance(car, Car):
+            raise TypeError(f'Tried to add a {car.__class__.__name__} to the garage')
+        self.cars.append(car)
+
+
+ford = Garage()
+
+# This raises TypeError
+# as it is passing str class object
+ford.add_car("Fiesta")
+
+# This is passing Car class object so 
+# no TypeError
+car = Car('Ford' , 'Fiesta')
+ford.add_car(car)
