@@ -57,3 +57,14 @@ ford.add_car("Fiesta")
 # no TypeError
 car = Car('Ford' , 'Fiesta')
 ford.add_car(car)
+
+####################################################
+# RAISE custom error
+####################################################
+class MyCustomError(TypeError):
+    def __init__(self, message, code):
+        super().__init__(f'Error {code}: {message}')
+        self.code = code
+
+# raises TypeError
+raise MyCustomError('An Error Happened! ',500) 

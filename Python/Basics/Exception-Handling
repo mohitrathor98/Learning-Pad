@@ -1,0 +1,37 @@
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def __repr__(self):
+        return f'<Car {self.make} {self.model}>'
+
+ 
+class Garage:
+    def __init__(self):
+        self.cars = []
+
+    def __len__(self):
+        return len(self.cars)
+
+    def add_car(self,car):
+        # Here this method is accepting only
+        # Car class objects
+        if not isinstance(car, Car):
+            raise TypeError(f'Tried to add a {car.__class__.__name__} to the garage')
+        self.cars.append(car)
+
+
+ford = Garage()
+
+# when add_car raises TypeError
+# Then program will print 'This in not Car type'
+# otherwise, message while raising error along with error trace stack gets printed
+try:
+    ford.add_car("Fiesta")
+except TypeError:
+    print("This is not Car type")
+    raise # if this is provided then it will also print the trace stack of the error
+finally:
+    print("This is executed")
