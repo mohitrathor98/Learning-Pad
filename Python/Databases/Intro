@@ -1,0 +1,28 @@
+SQLite
+======
+    --> small, fast and reliable
+    --> can run in memory or as a single file
+    --> Interact with it using SQL
+
+    --> can only one write operation at a time
+    --> allows multiple read operation
+
+Using SQLite in python
+======================
+
+    --> import sqlite3
+
+        connection = sqlite3.connect('data.db') # connect to database
+        cursor = connection.cursor() # get the cursor 
+
+        cursor.execute('Your SQL Query here') # execute sql Query
+        connection.commmit()    # commmit to database
+        
+        connection.close()
+
+Cursor: All operation in SQLite  are made by cursor, and not by the connection
+        object itself
+
+        --> By this we can have one single connection to db but multiple cursors
+
+        --> Once we read row1, cursor moves to row2 and so on
