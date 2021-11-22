@@ -1,0 +1,35 @@
+Iterable
+ -- An iterable is an object that has an __iter__ method
+
+# generator 
+class FirstHundredGenerator:
+    def __init__(self) -> None:
+        self.number = 0
+    
+    # it is also called iterator
+    def __next__(self): #next(generator object)
+        # yield is not required when we are creating our own next()
+        if self.number < 100:
+            current = self.number
+            self.number += 1
+            return current
+
+        else:
+            # used to tell interpreter that generator stops here
+            raise StopIteration()
+
+    # defining this makes it both iterable and generator(or iterator)
+    def __iter__(self):
+        return self
+
+# iterable
+class FirstHundredIterable:
+    def __iter__(self):
+        return FirstHundredGenerator()
+
+print(sum(FirstHundredIterable())) # sums hundred numbers : 4950
+
+for i in FirstHundredIterable():
+    print(i)
+
+print(sum(FirstHundredGenerator())) # same as we defined __iter__ in FirsHundredGenerator class

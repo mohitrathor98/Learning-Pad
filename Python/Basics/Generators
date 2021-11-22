@@ -59,3 +59,10 @@ print(next(my_gen)) # prints 1
 Iterators
 ---------
  -- Iterators are those obects that have __next__() method
+
+ Genrator Comprehension
+ ----------------------
+
+ my_number_gen = (x for x in [1,2,3,4,5])
+ print(next(my_number_gen)) # 1
+ print(list(my_number_gen)) # [2,3,4,5]
