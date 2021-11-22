@@ -1,0 +1,61 @@
+
+-- Generator is a function that remebers its state during multiple executions
+
+Program to print 100 numbers
+----------------------------
+
+def hundred_numbers():
+    nums = []
+    i = 0
+    while i < 100:
+        nums.append(i)
+        i += 1
+    return nums
+
+print(hundred_numbers())
+
+Using generator:
+---------------
+
+# this function remebers where it stopped last time
+def hundred_numbers():
+    i = 0
+    while i < 100:
+        # when next(g) is called i is returned and function stops 
+        # after doing i += 1 and wait for next call
+        yield i # return value
+        i += 1 
+
+g = hundred_numbers() # returns generator object as yield is present
+print(next(g)) # prints 0
+print(next(g)) # prints 1
+
+print(list(g)) # convers generator to list, it prints [2, 3, 4, ... , 99]
+
+
+Generator calsses:
+------------------
+
+class FirstHundredGenerator:
+    def __init__(self) -> None:
+        self.number = 0
+    
+    # it is also called iterator
+    def __next__(self): #next(generator object)
+        # yield is not required when we are creating our own next()
+        if self.number < 100:
+            current = self.number
+            self.number += 1
+            return current
+
+        else:
+            # used to tell interpreter that generator stops here
+            raise StopIteration()
+
+my_gen = FirstHundredGenerator()
+print(next(my_gen)) # prints 0 
+print(next(my_gen)) # prints 1
+
+Iterators
+---------
+ -- Iterators are those obects that have __next__() method
