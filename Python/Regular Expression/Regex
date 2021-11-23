@@ -55,7 +55,7 @@ MetaCharacters
     =======
         --> zero or more occurences of the pattern
 
-        Expression: 'ma*n' (zero or more occurences of ma followed by n)
+        Expression: 'ma*n' (m then zero or more occurences of a followed by n)
                     String: mn      : 1 match
                     String: man     : 1 match
                     String: maan    : 1 match
@@ -66,7 +66,7 @@ MetaCharacters
     =======
         --> one or more occurences of the pattern
 
-        Expression: 'ma+n' (one or more occurence of ma follwed by n)
+        Expression: 'ma+n' (m then one or more occurence of a follwed by n)
                     String: mn      : No match(no 'a' character)
                     String: man     : 1 match
                     String: maaan   : 1 match
@@ -77,7 +77,7 @@ MetaCharacters
     ================
         --> Matches zero or one occurence of the pattern
 
-        Expression: 'ma?n' (zero or one occurence of ma followed by n)
+        Expression: 'ma?n' (m then zero or one occurence of a followed by n)
                     String: mn      : 1 match
                     String: man     : 1 match
                     String: maaan   : no match(more than 1 a)
@@ -88,7 +88,7 @@ MetaCharacters
     ========
         --> {n,m} : at least n, and at most m repetitions of the pattern
 
-        Expression: 'a{2,3}' (Atleast 2 a and atmost 3 a)
+        Expression: 'a{2,3}' (Atleast 2 repetitions of a and atmost 3 repetitions of a)
                     String: abc dat             : No match
                     String: abc daat            : 1 match(at daat)
                     String: aabc daaat          : 2 matches(at aabc and daaat)
@@ -128,7 +128,7 @@ MetaCharacters
     
     Special Sequences:
     =================
-        -- '\A' : Matches if specified characters are at teh start of a string
+        -- '\A' : Matches if specified characters are at the start of a string
 
             Expression: '\Athe'
                         String: the sun     : match
@@ -144,7 +144,7 @@ MetaCharacters
             Expression: 'foo\b' {foo at the end of any word}
                         String: the foo         : Match
                         String: the afoo test   : Match
-                        String: the afootest    : Match
+                        String: the afootest    : No Match
 
         -- '\B' : opposite of \b.
                   Matches if specified characters are not at the beginning or end of a word
