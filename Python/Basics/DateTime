@@ -1,0 +1,15 @@
+from datetime import datetime, timezone, timedelta
+
+print(datetime.now()) # current time of os, doesn't have any timezone info
+
+print(datetime.now(timezone.utc)) # it gives current time of utc timezone with offset
+
+today = datetime.now()
+tomorrow = today + timedelta(days = 1)
+
+print(today.strftime('%d-%m-%y %H:%M:%S')) # string format time
+
+user_date = input("Enter the date in YYYY-MM-DD format: ")
+user_date = datetime.strptime(user_date, '%y-%m-%d') # string parse time
+
+print(user_date) # prints YYYY-MM-DD 00:00:00
