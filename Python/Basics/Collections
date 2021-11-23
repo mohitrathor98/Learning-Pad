@@ -1,0 +1,72 @@
+"""
+* counter
+* defaultdict
+* ordereddict
+* namedtuple
+* deque
+"""
+
+counter
+=======
+
+from collections import Counter
+from typing import Deque, NamedTuple, OrderedDict
+
+device_temp = [13.5, 14.0, 14.0, 14.5, 14.5, 14.5 15.0, 16.0]
+
+temp_counter = Counter(device_temp) # returns dict of elements and their count
+
+print(temp_counter[14.0]) # prints 2
+
+
+defaultdict
+===========
+    --> Never returns a key error
+
+from collections import defaultdict
+
+coworkers = [('Rolf', 'MIT'), ('Jen', 'Oxford')]
+
+alma_maters = defaultdict(list) # if key is not present it returns empty list
+                                ## default value is list
+
+for coworker, place in coworkers:
+    alma_maters[coworker].append(place)
+
+
+OrderedDict
+===========
+
+from collections import OrderedDict
+# it stores key in the order as they were inserted
+# from python 3.7 all dictionaries are ordered
+o = OrderedDict()
+o['Rolf'] = 5
+o['Jose'] = 12
+
+NamedTuple
+==========
+
+from collections import namedtuple
+
+account = ('checking', 1850.90)
+
+Account = namedtuple('Account', ['name', 'balance'])
+
+account = Account('checking', 1850.90)
+
+print(account.name) # checking
+print(account) # Account(name = 'checking', balance=1850.90)
+
+
+Deque
+=====
+
+from collections import deque
+
+friends = deque(('Rolf', 'Charlie', 'Jen', 'Anna'))
+friends.append('Jose')
+friends.appendleft('Anthony')
+
+friends.pop()
+friends.popleft()
