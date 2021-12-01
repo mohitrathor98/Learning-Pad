@@ -11,7 +11,7 @@ names = re.findall(r'[A-Z][a-z]*',string)       *
 =================================================
 
 ===========================================================================
-import re                                                                 *
+                                                                 
 --------------------------------------------------------------------------*
 if re.search("inform", "we need to inform him about latest information"): *
     print("There is inform")                                              *
