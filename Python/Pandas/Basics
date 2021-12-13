@@ -1,0 +1,19 @@
+import pandas
+
+# reading data using csv
+data = pandas.read_csv("example.csv")
+print(data["column name"])
+
+data_dict = data.to_dict()
+print(data_dict) # csv data in a dictionaty format
+
+data = pandas.DataFrame(data_dict)
+print(data) # creating a DataFrame
+
+data.to_csv('new_csv.csv') # writing dataframe to a csv file
+
+Dataframe: Whole table is a dataframe
+---------
+
+Series: Each row or column is a list(series)
+------
