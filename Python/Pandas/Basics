@@ -12,6 +12,11 @@ print(data) # creating a DataFrame
 
 data.to_csv('new_csv.csv') # writing dataframe to a csv file
 
+# looping through dataframe
+for (index, row) in data.iterrows():
+    if data.column_name == "value":
+        print(data.column_name2)
+
 Dataframe: Whole table is a dataframe
 ---------
 
