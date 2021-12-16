@@ -1,0 +1,24 @@
+*args (Postional arguments)
+=====
+
+def add(*args):
+    # variable arguments
+    # args is a tuple which contains variable number of arguments
+    print(args[0]) # prints 1
+    for i in args:
+        print(i)
+
+add(1, 2, 3, 4, 5, 6)
+
+
+**kwargs (Keyword arguments)
+========
+
+def add(**kwargs):
+    # variable arguments 
+    # kwargs is a dictonary which contains key-value arguments
+    print(kwargs['sum']) # prints 1
+    for (key,value) in kwargs.items():
+        print(key, value)
+    
+add(sum=1, mul=2, div=3)

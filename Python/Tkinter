@@ -1,0 +1,11 @@
+import tkinter
+
+window = tkinter.Tk() # creates window
+window.title("My first GUI window")
+window.minsize(width= 500, height=300)
+window.mainloop() # keeps window open
+
+# label
+my_label = tkinter.Label(text="I am a label", font=("Arial", 24, "bold"))
+my_label.pack() # places at the center of screen
+# pack() takes side as argument like pack(side="left")
