@@ -1,0 +1,31 @@
+pack()
+=====
+
+-- It packs all the commponets consecutively(one after another)
+-- It accepts left, right center arguments.
+
+place()
+======
+
+-- Precise positioning
+-- While placing we can provide an x and y value
+
+for ex:
+
+my_label.place(x=0, y=0) # top left corner
+
+-- We have to work on coordinates for each component as it is precise
+-- if we use place then components having pack won't get displayed
+
+grid()
+=====
+
+-- It divides screen into cols and rows
+
+eg: my_label.grid(column=0, row=0)
+
+-- it is relative to other component
+-- so even if we change it to (column=4, row = 4), label's position won't change
+   as no other components are in (0,0),(1,1),(2,2) and so on.
+
+-- can't mixup pack and grid
