@@ -3,8 +3,19 @@ import tkinter
 window = tkinter.Tk() # creates window
 window.title("My first GUI window")
 window.minsize(width= 500, height=300)
-window.config(padx=20, pady=20) # adding a padding of 20x20 in window 
-window.mainloop() # keeps window open
+window.config(padx=20, pady=20) # adding a padding of 20x20 in window
+
+def say_something(a, b, c):
+    print(a)
+    print(b)
+    print(c)
+    
+# this method calls the method after 1000 ms is passed
+# arguments after say_something gets passed to the function
+window.after(1000, say_something, 1, 2, 3)
+ 
+# WARNING: must be kept at the end of program
+window.mainloop() # keeps window open by running the program again and again
 
 # label
 my_label = tkinter.Label(text="I am a label", font=("Arial", 24, "bold"))
