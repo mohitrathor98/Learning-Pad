@@ -1,0 +1,17 @@
+Canvas
+------
+
+-- Layer things one on top of other
+
+canvas = Canvas(width=200, height=224, bg="#f7f5dd", highlisghtthickness=0)
+
+# PhotoImage is used to read image file in tkinter
+tomato_img = PhotoImage(file="tomato.png")
+
+# first two args are x and y coordinates
+canvas.create_image(100, 112, image=tomato_img) # image argument expects a PhotoImage object
+
+# place text on the tomato_img
+canvas.create_text(103, 130, text="00:00", fill="white", font=("Verdana", 35, "bold")) 
+
+canvas.pack()
