@@ -66,7 +66,9 @@ class Solution:
             while num >= 1000:
                 num -= 1000
                 res += roman_dic[1000]
+                
         if num >= 100:
+            # 996 ==> extract = 900
             extract = (num//100)*100
             if extract >= 900:
                 num -= 900
@@ -79,11 +81,13 @@ class Solution:
                 extract-=500
                 res+=roman_dic[500]
             
+            # for 100, 200, 300
             if extract>=100 and num>=100:
                 num -= extract
                 res += ((extract//100)*roman_dic[100])
                 
         if num>=10:
+            # 96 ==> extract = 90
             extract = (num//10)*10
             if extract>=90:
                 num-=90
@@ -95,21 +99,27 @@ class Solution:
                 num-=50
                 extract-=50
                 res+=roman_dic[50]
+            
+            # for 10, 20, 30       
             if extract>=10 and num>=10:
                 num -= extract
                 res += ((extract//10)*roman_dic[10])
+        
         if num<10:        
             if num == 9:
                 res += roman_dic[1]+roman_dic[10]
             elif num == 4:
                 res += roman_dic[1]+roman_dic[5]
             else:
+                # for 5 and 1
                 if num in roman_dic.keys():
                     res += roman_dic[num]
                 else:
+                    # for 6, 7, 8
                     if num>5:
                         res+=roman_dic[5]
                         num-=5
+                    # for 2 and 3
                     for _ in range(num):
                         num-=1
                         res+=roman_dic[1]
