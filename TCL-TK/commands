@@ -1,0 +1,29 @@
+TCL Commands
+============
+Tcl command is actually a list of words, with the first word 
+representing the command to be executed. The next words represent the arguments. 
+In order to group the words into a single argument, we enclose multiple words
+with "" or {}.
+The syntax of Tcl command is as follows −
+    commandName argument1 argument2 ... argumentN
+
+EX:
+
+puts "Hello, world!" ==> Here puts is a command and "Hello World" is an argument
+
+
+Command Substitution
+====================
+In command substitutions, square brackets are used to evaluate 
+the scripts inside the square brackets. 
+
+A simple example to add two numbers is shown below:
+
+puts [expr 1 + 6 + 9]
+
+Variable Substitution
+=====================
+In variable substitutions, $ is used before the variable name and this returns the contents of the variable. A simple example to set a value to a variable and print it is shown below.
+
+set a 3
+puts $a

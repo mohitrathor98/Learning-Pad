@@ -1,0 +1,64 @@
+TCL Datatypes
+=============
+The primitive data-type of Tcl is string and 
+often we can find quotes on Tcl as string only language.
+
+Simple Tcl Objects
+==================
+In Tcl, whether it is an integer number, boolean, floating point number, 
+or a string. When you want to use a variable, you can directly assign a value to it, 
+there is no step of declaration in Tcl
+
+EX:
+--
+set myVariable 18
+puts $myVariable
+
+The above statement will create a variable name myVariable and stores it as a string even though, we have not used double quotations. Now, if we try to make an arithmetic on the variable, it is automatically turned to an integer.
+
+EX:
+--
+set myVariable 18
+puts [expr $myVariable + 6 + 9] --> outputs 33
+
+String Representations
+======================
+Unlike other languages, in Tcl, you need not include double quotes when it's only a single word. An example can be -
+
+set myVariable hello
+puts $myVariable
+
+When we want to represent multiple strings, we can use either double quotes or curly braces. It is shown below -
+
+set myVariable "hello world"
+puts $myVariable
+set myVariable {hello world}
+puts $myVariable
+
+List
+===
+List is nothing but a group of elements. A group of words either using double quotes or curly braces can be used to represent a simple list. A simple list is shown below −
+
+set myVariable {red green blue}
+puts [lindex $myVariable 2] --> blue
+set myVariable "red green blue"
+puts [lindex $myVariable 1] --> green
+
+
+Associative Array
+=================
+Associative arrays have an index (key) that is not necessarily an integer.
+It is generally a string that acts like key value pairs. 
+A simple example is shown below −
+
+set  marks(english) 80
+puts $marks(english)
+set  marks(mathematics) 90
+puts $marks(mathematics)
+
+
+Handles
+=======
+Tcl handles are commonly used to represent files and graphics objects.
+
+set myfile [open "filename" r]

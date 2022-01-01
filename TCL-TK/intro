@@ -1,0 +1,44 @@
+Documentation: https://www.tutorialspoint.com/tcl-tk
+
+TCL (Tool Command Language)
+===
+-- Tcl is a general purpose multi-paradigm system programming language.
+-- It is a scripting language that aims at providing the ability for applications to communicate with each other.
+
+TK
+==
+-- Tk is a cross platform widget toolkit used for building GUI in many languages. 
+
+
+Features of Tcl
+===============
+-- Reduced development time.
+-- Powerful and simple user interface kit with integration of TK.
+-- Write once, run anywhere. It runs on Windows, Mac OS X, and almost on every Unix platform.
+-- Quite easy to get started for experienced programmers; since, the language is so simple that they can learn Tcl in a few hours or days.
+-- You can easily extend existing applications with Tcl. Also, it is possible to include Tcl in C, C++, or Java to Tcl or vice versa.
+-- Have a powerful set of networking functions.
+-- Finally, it's an open source, free, and can be used for commercial applications without any limit.
+
+Applications
+============
+-- Tcl is a general-purpose language and you can find Tcl everywhere. It includes,
+    --> Scalable websites that are often backed by databases.
+    --> High performance web servers build with TclHttpd.
+    --> Tcl with CGI based websites.
+    --> Desktop GUI applications.
+    --> Embedded applications.
+
+Installation
+============
+--> sudo apt-get install tcl tk
+
+RUNNING
+=======
+--> filename.tcl
+    #!/usr/bin/tclsh
+
+    puts "Hello World!" 
+
+--> tclsh filename.tcl
+
