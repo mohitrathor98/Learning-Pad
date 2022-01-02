@@ -1,0 +1,208 @@
+String commands
+===============
+
+1)compare string1 string2
+
+-- Compares string1 and string2 lexographically. 
+   Returns 0 if equal, -1 if string1 comes before string2, else 1.
+
+2)first string1 string2
+
+-- Returns the index first occurrence of string1 in string2. If not found, returns -1.
+
+3)index string index
+
+-- Returns the character at index.
+
+4)last string1 string2
+
+-- Returns the index last occurrence of string1 in string2. If not found, returns -1.
+
+5)length string
+
+-- Returns the length of string.
+
+6)match pattern string
+
+-- Returns 1 if the string matches the pattern.
+
+7)range string index1 index2
+
+-- Return the range of characters in string from index1 to index2.
+
+8)tolower string
+
+-- Returns the lowercase string.
+
+9)toupper string
+
+-- Returns the uppercase string.
+
+10)trim string ?trimcharacters?
+
+-- Removes trimcharacters in both ends of string. The default trimcharacters is whitespace.
+
+11)trimleft string ?trimcharacters?
+
+-- Removes trimcharacters in left beginning of string.
+   The default trimcharacters is whitespace.
+
+12)trimright string ?trimcharacters?
+
+-- Removes trimcharacters in left end of string. 
+   The default trimcharacters is whitespace.
+
+13)wordend findstring index
+
+-- Return the index in findstring of the character after the word containing
+   the character at index.
+
+14)wordstart findstring index
+
+-- Return the index in findstring of the first character in the word 
+   containing the character at index.
+
+Examples
+========
+
+String Comparison
+-----------------
+#!/usr/bin/tclsh
+
+set s1 "Hello"
+set s2 "World"
+set s3 "World"
+puts [string compare $s1 $s2]
+if {[string compare $s2 $s3] == 0} {
+   puts "String \'s1\' and \'s2\' are same.";
+}
+
+if {[string compare $s1 $s2] == -1} {
+   puts "String \'s1\' comes before \'s2\'.";
+}
+
+if {[string compare $s2 $s1] == 1} {
+   puts "String \'s2\' comes after \'s1\'.";
+}
+
+-- When the above code is compiled and executed, it produces the following result 
+-1
+String 's1' and 's2' are same.
+String 's1' comes before 's2'.
+String 's2' comes after 's1'.
+
+Index of String
+---------------
+#!/usr/bin/tclsh
+
+set s1 "Hello World"
+set s2 "o"
+puts "First occurrence of $s2 in s1"
+puts [string first $s2 $s1]
+puts "Character at index 0 in s1"
+puts [string index $s1 0]
+puts "Last occurrence of $s2 in s1"
+puts [string last $s2 $s1]
+puts "Word end index in s1"
+puts [string wordend $s1 20]
+puts "Word start index in s1"
+puts [string wordstart $s1 20]
+
+--When the above code is compiled and executed, it produces the following result
+
+First occurrence of o in s1
+4
+Character at index 0 in s1
+H
+Last occurrence of o in s1
+7
+Word end index in s1
+11
+Word start index in s1
+6
+
+Length of String
+----------------
+#!/usr/bin/tclsh
+
+set s1 "Hello World"
+puts "Length of string s1"
+puts [string length $s1]
+
+-- When the above code is compiled and executed, it produces the following result 
+Length of string s1
+11
+
+Handling Cases
+--------------
+#!/usr/bin/tclsh
+
+set s1 "Hello World"
+puts "Uppercase string of s1"
+puts [string toupper $s1]
+puts "Lowercase string of s1"
+puts [string tolower $s1]
+
+-- When the above code is compiled and executed, it produces the following result
+
+Uppercase string of s1
+HELLO WORLD
+Lowercase string of s1
+hello world
+
+Trimming Characters
+-------------------
+#!/usr/bin/tclsh
+
+set s1 "Hello World"
+set s2 "World"
+puts "Trim right $s2 in $s1"
+puts [string trimright $s1 $s2]
+
+set s2 "Hello"
+puts "Trim left $s2 in $s1"
+puts [string trimleft $s1 $s2]
+
+set s1 " Hello World "
+set s2 " "
+puts "Trim characters s1 on both sides of s2"
+puts [string trim $s1 $s2]
+
+-- When the above code is compiled and executed, it produces the following result
+
+Trim right World in Hello World
+Hello 
+Trim left Hello in Hello World
+ World
+Trim characters s1 on both sides of s2
+Hello World
+
+Matching Strings
+----------------
+#!/usr/bin/tclsh
+
+set s1 "test@test.com" 
+set s2 "*@*.com"
+puts "Matching pattern s2 in s1"
+puts [string match "*@*.com" $s1 ]
+puts "Matching pattern tcl in s1"
+puts [string match {tcl} $s1]
+
+--When the above code is compiled and executed, it produces the following result
+
+Matching pattern s2 in s1
+1
+Matching pattern tcl in s1
+0
+
+Append Command
+--------------
+#!/usr/bin/tclsh
+
+set s1 "Hello" 
+append s1 " World"
+puts $s1
+
+-- When the above code is compiled and executed, it produces the following result
+
+Hello World

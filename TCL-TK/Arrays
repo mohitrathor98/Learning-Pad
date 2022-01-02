@@ -1,0 +1,43 @@
+Arrays
+======
+
+set ArrayName(Index) value
+
+Ex:
+--
+
+set languages(0) Tcl
+set languages(1) "C Language"
+puts $languages(0)
+puts $languages(1)
+
+-- size of array: [array size variablename]
+
+Iteration
+=========
+
+set languages(0) Tcl
+set languages(1) "C Language"
+for { set index 0 }  { $index < [array size languages] }  { incr index } {
+   puts "languages($index) : $languages($index)"
+}
+
+Indices
+=======
+
+[array names variablename]
+
+# associative array
+set personA(Name) "Dave"
+set personA(Age) 14
+puts [array names personA]
+
+Iteration of associative array
+==============================
+
+set personA(Name) "Dave"
+set personA(Age) 14
+foreach index [array names personA] {
+   puts "personA($index): $personA($index)"
+}
+
