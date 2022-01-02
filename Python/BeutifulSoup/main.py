@@ -50,7 +50,7 @@ print(company_url)
 
 # selects as per id name
 name = soup.select_one(selector="#name")
-print((name))
+print(name)
 
 # selects all the items with heading class
 headings = soup.select(selector=".heading")
