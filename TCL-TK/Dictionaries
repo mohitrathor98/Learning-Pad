@@ -1,0 +1,47 @@
+Dictionaries
+============
+
+dict set dictname key value
+# or 
+dict create dictname key1 value1 key2 value2 .. keyn valuen
+
+Ex:
+dict set colours  colour1 red 
+puts $colours
+dict set colours  colour2 green
+puts $colours
+
+set colours [dict create colour1 "black" colour2 "white"]
+puts $colours
+
+
+Size of Dict
+============
+The syntax for getting size of dict is shown below −
+
+[dict size dictname]
+
+Ex:
+set colours [dict create colour1 "black" colour2 "white"]
+puts [dict size $colours]
+
+
+Dictionary Iteration
+====================
+set colours [dict create colour1 "black" colour2 "white"]
+foreach item [dict keys $colours] {
+   set value [dict get $colours $item]
+   puts $value
+}
+
+Value for Key in Dict
+=====================
+The syntax for retrieving value for key in dict is shown below −
+
+[dict get $dictname $keyname]
+
+Key Exists in Dict
+==================
+The syntax for checking if a key exists in dict is shown below −
+
+[dict exists $dictname $key]

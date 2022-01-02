@@ -1,0 +1,102 @@
+Creating a List
+===============
+
+The general syntax for list is given below −
+
+set listName { item1 item2 item3 .. itemn }
+# or
+set listName [list item1 item2 item3]
+# or 
+set listName [split "items separated by a character" split_character]
+
+Appending Item to a List
+========================
+
+The syntax for appending item to a list is given below −
+
+append listName split_character value
+# or
+lappend listName value
+
+Ex:
+set var orange
+append var " " "blue"
+lappend var "red" 
+lappend var "green" 
+puts $var
+
+
+Length of List
+==============
+The syntax for length of list is given below −
+
+llength listName
+
+Ex:
+set var {orange blue red green}
+puts [llength $var]
+
+List Item at Index
+==================
+The syntax for selecting list item at specific index is given below −
+
+lindex listname index
+
+Ex:
+set var {orange blue red green}
+puts [lindex $var  1]
+
+Insert Item at Index
+====================
+The syntax for inserting list items at specific index is given below.
+
+linsert listname index value1 value2..valuen
+
+Ex:
+set var {orange blue red green}
+set var [linsert  $var 3 black white]
+puts $var
+
+Replace Items at Indices
+=======================
+The syntax for replacing list items at specific indices is given below −
+
+lreplace listname firstindex lastindex value1 value2..valuen
+
+Ex:
+set var {orange blue red green}
+set var [lreplace $var 2 3 black white]
+puts $var
+
+Set Item at Index
+=================
+The syntax for setting list item at specific index is given below −
+
+lset listname index value
+
+Ex:
+set var {orange blue red green}
+lset var 0 black 
+puts $var
+
+Transform List to Variables
+===========================
+The syntax for copying values to variables is given below −
+
+lassign listname variable1 variable2.. variablen
+
+set var {orange blue red green}
+lassign $var colour1 colour2
+puts $colour1 # orange
+puts $colour2 # blue
+
+Sorting a List
+==============
+The syntax for sorting a list is given below −
+
+lsort listname
+
+Ex:
+set var {orange blue red green}
+set var [lsort $var]
+puts $var

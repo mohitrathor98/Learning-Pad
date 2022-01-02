@@ -1,0 +1,122 @@
+Namespaces
+==========
+
+Creating Namespaces
+-------------------
+#!/usr/bin/tclsh
+
+namespace eval MyMath {
+  # Create a variable inside the namespace
+  variable myResult
+}
+
+# Create procedures inside the namespace
+proc MyMath::Add {a b } {  
+  set ::MyMath::myResult [expr $a + $b]
+}
+MyMath::Add 10 23
+
+puts $::MyMath::myResult
+
+Importing and exporting Namespaces
+----------------------------------
+
+#!/usr/bin/tclsh
+
+namespace eval MyMath {
+   # Create a variable inside the namespace
+   variable myResult
+   namespace export Add
+}
+
+# Create procedures inside the namespace
+proc MyMath::Add {a b } {  
+   return [expr $a + $b]
+}
+
+namespace import MyMath::*
+puts [Add 10 30]
+
+
+Packages
+========
+
+Creating Package
+----------------
+
+Step 1: Creating code
+*********************
+Create code for package inside a folder say HelloWorld.
+Let the file be named HelloWorld.tcl with the code as shown below −
+
+# /Users/rajkumar/Desktop/helloworld/HelloWorld.tcl 
+# Create the namespace
+namespace eval ::HelloWorld {
+ 
+  # Export MyProcedure
+  namespace export MyPrCreate code for package inside a folder say HelloWorld. Let the file be named HelloWorld.tcl with the code as shown below −
+
+# /Users/rajkumar/Desktop/helloworld/HelloWorld.tcl 
+# Create the namespace
+namespace eval ::HelloWorld {
+ 
+  # Export MyProcedure
+  namespace export MyProcedure
+ 
+  # My Variables
+   set version 1.0
+   set MyDescription "HelloWorld"
+ 
+  # Variable for the path of the script
+   variable home [file join [pwd] [file dirname [info script]]]
+ 
+}
+ 
+# Definition of the procedure MyProcedure
+proc ::HelloWorld::MyProcedure {} {
+   puts $HelloWorld::MyDescription
+}
+
+package provide HelloWorld $HelloWorld::version
+package require Tcl 8.0
+ocedure
+ 
+  # My Variables
+   set version 1.0
+   set MyDescription "HelloWorld"
+ 
+  # Variable for the path of the script
+   variable home [file join [pwd] [file dirname [info script]]]
+ 
+}
+ 
+# Definition of the procedure MyProcedure
+proc ::HelloWorld::MyProcedure {} {
+   puts $HelloWorld::MyDescription
+}
+
+package provide HelloWorld $HelloWorld::version
+package require Tcl 8.0
+
+Step 2: Creating Package Index
+******************************
+In tclsh
+
+% cd /Users/rajkumar/Desktop/helloworld 
+% pkg_mkIndex . *.tcl
+
+
+Step 3: Adding Directory to Autopath
+************************************
+
+% lappend auto_path "/Users/rajkumar/Desktop/helloworld"
+
+Step 4: Adding Package
+**********************
+Next add package to program using package require statement as shown below −
+
+% package require HelloWorld 1.0
+
+Step 5: Invoking Procedure
+**************************
+% puts [HelloWorld::MyProcedure]
