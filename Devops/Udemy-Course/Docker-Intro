@@ -14,3 +14,6 @@ Advantage of container:
 
     -- Development and Production server can have same execution environment.
     -- Multiple projects using different versions of same software can be handled.
+
+
+Download Docker-Desktop on windows/macos or install docker on linux
