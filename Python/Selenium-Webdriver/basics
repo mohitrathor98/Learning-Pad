@@ -1,0 +1,13 @@
+Why?
+---
+
+-- For web automation testing
+-- With BS4, we can't provide any inputs to the website, we can only scrap the info
+
+Setup for selenium webdriver
+----------------------------
+
+- Install chrome
+- Download chrome driver ==> Driver version must be same as chrome version
+    link: https://chromedriver.chromium.org/downloads
+- Install and setup selenium
