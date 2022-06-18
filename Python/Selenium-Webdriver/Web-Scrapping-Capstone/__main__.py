@@ -1,5 +1,15 @@
+###############################################################################
+# GETTING RENT PROPERTY AT NEW TOWN, KOLKATA, WITHIN 5000-15000 PRICE RANGE   #
+# FILLING THE DATA IN GOOGLE FORM TO CREATE A SHEET                           #
+#                                                                             #
+# BS4 and SELENIUM WEBDRIVER IS USED                                          #
+###############################################################################
+
 from scrapper import Scrapper
 from sheet import Sheet
+
+import warnings
+warnings.filterwarnings('ignore')
 
 # get address, price and links
 data = {}
@@ -9,5 +19,5 @@ data['price'] = scrapper.get_price()
 data['links'] = scrapper.get_link()
 
 # send data to sheet class and fill the sheet
-sheet = Sheet(link='link to spreadsheet', data=data)
-# get link to spreadsheet
+sheet = Sheet(url='https://docs.google.com/forms/d/e/1FAIpQLSdNINWR5ucWoULxZsiuCBz-PkVnq49VJ7q22p7Gg19LoS3GXQ/viewform?usp=sf_link')
+sheet.create_sheet(data=data)
