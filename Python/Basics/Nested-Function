@@ -1,0 +1,11 @@
+## Functions can be returned from other functions
+def outer_function():
+    print("I'm outer")
+
+    def nested_function():
+        print("I'm inner")
+
+    return nested_function
+
+inner_function = outer_function() # it prints I'm outer and returns nested_function
+inner_function # it calls nested_function which prints I'm inner

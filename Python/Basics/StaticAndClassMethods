@@ -1,0 +1,59 @@
+class Students:
+    def __init__(self, name, school):
+        self.name = name
+        self.school = school
+        self.marks = []
+
+    @property
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+
+rolf = Students('Rolf', 'MIT')
+
+rolf.marks.append(57)
+
+# since property decorator is used
+# it can be called like this
+print(rolf.average)
+
+
+
+#######################################################################
+# staticmethod vs classmethod
+#
+# staticmethod --> doesn't take object/class as an argument
+#              --> called using classname.method()
+#
+# classmethod --> takes class as argument
+#             --> called using classname.method()/objectname.method()
+#             --> But method will take class as a parameter
+#######################################################################
+class FixedFlaot:
+    def __init__(self, amount):
+        self.amount = amount
+    
+    def __repr__(self):
+        return f"FixedFlaot: {self.amount: .2f}"
+    
+    @classmethod
+    def from_sum(cls, value1, value2):
+        # cls is argument which takes class as an object
+        # so if FixedFloat class calls this, it will return FixedFloat class obj
+        # and if Euro class calls it, it will return Euro class object
+        return cls(value1 + value2)
+
+
+class Euro(FixedFlaot):
+    def __init__(self, amount):
+        super().__init__(amount)
+        self.symbol = 'E'
+
+    def  __repr__(self):
+        return f"Euro: {self.symbol} {self.amount:.2f}"
+
+money = Euro.from_sum(16.453,9.22)
+print(money) # prints money as Euro class
+
+number = FixedFlaot.from_sum(12.33,22.333)
+print(number) # prints number as FixedFloat class
