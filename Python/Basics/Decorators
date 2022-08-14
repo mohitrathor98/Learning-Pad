@@ -1,59 +1,56 @@
-class Students:
-    def __init__(self, name, school):
-        self.name = name
-        self.school = school
-        self.marks = []
+What is Decorator?
+=================
 
-    @property
-    def average(self):
-        return sum(self.marks) / len(self.marks)
+--> Add some additional functionalities to existing function
 
 
-rolf = Students('Rolf', 'MIT')
+--> Functions are the first class objects and can be passed around as arguments, e.g,
+    int/string/float, etc.
+===========================================================================================
+# original function to be called
+def add(n1, n2):
+    return n1+n2
 
-rolf.marks.append(57)
+# it calls the add function and passes the values
+def calculate(calc_function, n1, n2):
+    return calc_function(n1, n2)
 
-# since property decorator is used
-# it can be called like this
-print(rolf.average)
+# passing function name as argument
+print(calculate(add, 1, 2))
+===========================================================================================
+
+## Simple Python Decorator Functions
+import time
+
+# a decorator function - it wraps a function and add some functionalities to it
+# ex: we can do something and then call a function any number of times we want and then repeat it for another function
+def delay_decorator(function):
+    def wrapper_function():
+        time.sleep(2)
+        # Do something before
+        function()
+        function()
+        # Do something after
+    return wrapper_function
+
+@delay_decorator # the decorator
+def say_hello():
+    print("Hello")
+
+#With the @ syntactic sugar - another name of decorator
+@delay_decorator
+def say_bye():
+    print("Bye")
+
+#Without the @ syntactic sugar
+def say_greeting():
+    print("How are you?")
 
 
+# calling
+say_hello() - calls delay_decorator; script sleeps for 2 secs and prints Hello
+say_greeting() - doesn't calls delay_decorator; script just prints the message
 
-#######################################################################
-# staticmethod vs classmethod
-#
-# staticmethod --> doesn't take object/class as an argument
-#              --> called using classname.method()
-#
-# classmethod --> takes class as argument
-#             --> called using classname.method()/objectname.method()
-#             --> But method will take class as a parameter
-#######################################################################
-class FixedFlaot:
-    def __init__(self, amount):
-        self.amount = amount
-    
-    def __repr__(self):
-        return f"FixedFlaot: {self.amount: .2f}"
-    
-    @classmethod
-    def from_sum(cls, value1, value2):
-        # cls is argument which takes class as an object
-        # so if FixedFloat class calls this, it will return FixedFloat class obj
-        # and if Euro class calls it, it will return Euro class object
-        return cls(value1 + value2)
-
-
-class Euro(FixedFlaot):
-    def __init__(self, amount):
-        super().__init__(amount)
-        self.symbol = 'E'
-
-    def  __repr__(self):
-        return f"Euro: {self.symbol} {self.amount:.2f}"
-
-money = Euro.from_sum(16.453,9.22)
-print(money) # prints money as Euro class
-
-number = FixedFlaot.from_sum(12.33,22.333)
-print(number) # prints number as FixedFloat class
+# another way of using decorators - not so useful
+decorated_function = delay_decorator(say_greeting)
+decorated_function() - calls delay_decorator; script sleeps for 2 secs and then prints the message
