@@ -12,5 +12,9 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello, World!</p>"
 
+@app.route("/bye")
+def bye():
+    return "Bye!!"
+
 if __name__ == "__main__":
     app.run() # runs the file with python <file_name>.py
