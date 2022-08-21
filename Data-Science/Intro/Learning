@@ -9,11 +9,11 @@ Types of Learning
 
             Based on the datasets we classify supervised learning into two types:
                 --> Classification (Defined labels): Discrete data ==> (ex: either 0 or 1)
-                --> Regression (No labels Defined): Continous data in a range ==> (ex: in the range of 0 to 5 : 0.3,0.222,2,etc)
+                --> Regression (No labels Defined): Continuous data in a range ==> (ex: in the range of 0 to 5 : 0.3,0.222,2,etc)
 
     2) Unsupervised Learning:
             --  Target is not given to the model while training 
-            --  Traning model has only input parameter values
+            --  Training model has only input parameter values
 
             Two Types of Unsupervised Learning:
                 --> Clustering: This technique is used to group data based on different patterns, that a model finds.
@@ -26,6 +26,6 @@ Types of Learning
             --  Major use of this technique is with image datasets as larges images datasets are not completely labelled
 
     4) Reinforcement Learning
-            -- Model keep on improving its performance using a reward feeback to learn the behaviour/pattern
+            -- Model keep on improving its performance using a reward feedback to learn the behavior/pattern
             -- We give input, model perform some action --> based on this action, model receives reward and using this reward
                 model reinforces its learning
