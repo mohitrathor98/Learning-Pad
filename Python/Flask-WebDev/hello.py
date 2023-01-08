@@ -7,7 +7,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-# decorator
+# decorator function which is inside app function, which lives inside Flask class
 @app.route("/") # when user goes to this path run below method
 def hello_world():
     return "<p>Hello, World!</p>"
