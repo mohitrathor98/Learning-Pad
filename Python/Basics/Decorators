@@ -1,29 +1,31 @@
-What is Decorator?
-=================
+# What is Decorator?
+# =================
 
---> Add some additional functionalities to existing function
+# --> Add some additional functionalities to existing function
 
 
---> Functions are the first class objects and can be passed around as arguments, e.g,
-    int/string/float, etc.
-===========================================================================================
-# original function to be called
-def add(n1, n2):
-    return n1+n2
+# --> Functions are the first class objects and can be passed around as arguments, e.g,
+#     int/string/float, etc.
+# ===========================================================================================
+# # original function to be called
+# def add(n1, n2):
+#     return n1+n2
 
-# it calls the add function and passes the values
-def calculate(calc_function, n1, n2):
-    return calc_function(n1, n2)
+# # it calls the add function and passes the values
+# def calculate(calc_function, n1, n2):
+#     return calc_function(n1, n2)
 
-# passing function name as argument
-print(calculate(add, 1, 2))
-===========================================================================================
+# # passing function name as argument
+# print(calculate(add, 1, 2))
+# ===========================================================================================
 
 ## Simple Python Decorator Functions
 import time
 
 # a decorator function - it wraps a function and add some functionalities to it
 # ex: we can do something and then call a function any number of times we want and then repeat it for another function
+
+# Below decorator: receives a function as an argument, sleeps for 2 secs and calls the function two times
 def delay_decorator(function):
     def wrapper_function():
         time.sleep(2)
@@ -33,7 +35,10 @@ def delay_decorator(function):
         # Do something after
     return wrapper_function
 
-@delay_decorator # the decorator
+
+# the decorator- When say_hello will get called, delay_decorator will get called
+#                and say_hello will get sent as an argument
+@delay_decorator 
 def say_hello():
     print("Hello")
 
@@ -48,9 +53,9 @@ def say_greeting():
 
 
 # calling
-say_hello() - calls delay_decorator; script sleeps for 2 secs and prints Hello
-say_greeting() - doesn't calls delay_decorator; script just prints the message
+say_hello() #- calls delay_decorator; script sleeps for 2 secs and prints Hello 2 times
+say_greeting() #- doesn't calls delay_decorator; script just prints the message
 
 # another way of using decorators - not so useful
 decorated_function = delay_decorator(say_greeting)
-decorated_function() - calls delay_decorator; script sleeps for 2 secs and then prints the message
+decorated_function() # - calls delay_decorator; script sleeps for 2 secs and then prints the message 2 times
