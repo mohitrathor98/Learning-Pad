@@ -59,3 +59,27 @@ say_greeting() #- doesn't calls delay_decorator; script just prints the message
 # another way of using decorators - not so useful
 decorated_function = delay_decorator(say_greeting)
 decorated_function() # - calls delay_decorator; script sleeps for 2 secs and then prints the message 2 times
+
+
+
+### Advanced Decorators -- Passing arguments to the deocrator function
+#========================================================================
+class User:
+    def __init__(self, name):
+        self.name = name
+        self.is_logged_in = False
+
+def is_authenticated_decorator(function):
+    # Taking arguments
+    def wrapper(*args, **kwargs):
+        if args[0].is_logged_in == True:
+            function(args[0])
+    return wrapper
+
+@is_authenticated_decorator
+def create_blog_post(user):
+    print(f"This is {user.name}'s new blog post.")
+
+new_user = User("Mohit")
+new_user.is_logged_in = True
+create_blog_post(new_user)
