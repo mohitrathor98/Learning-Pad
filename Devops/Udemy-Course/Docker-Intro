@@ -29,3 +29,16 @@ Download Docker-Desktop on windows/macos or install docker on linux
 ***3. Download and install Docker desktop***
 
 ***4. Run "docker ps" command to check the installation***
+
+
+**Docker Tools**
+
+    1. Docker Engine: Hosts linux VM required to run docker containers.
+    2. Docker Desktop: Includes Daemon and CLI - Also installs Docker Engine
+    3. Docker Hub: Service that allows to host our images in cloud.
+    4. Docker Compose: Makes managing complex containers or multi-containers easier.
+
+**Kubernetes**
+
+    Tool to manage complex containerized applications.
+
