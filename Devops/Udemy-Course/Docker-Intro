@@ -17,3 +17,15 @@ Advantage of container:
 
 
 Download Docker-Desktop on windows/macos or install docker on linux
+-------------------------------------------------------------------
+<a href="https://docs.docker.com/desktop/install/windows-install/">Windows Installation</a>
+***1. Enable Hyper-V and containers:*** From powershell run below commands:
+
+    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+    Enable-WindowsOptionalFeature -Online -FeatureName containers All
+
+***2. Enable WSL2***
+
+***3. Download and install Docker desktop***
+
+***4. Run "docker ps" command to check the installation***
