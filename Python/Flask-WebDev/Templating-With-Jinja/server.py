@@ -13,5 +13,21 @@ def hello():
     return render_template("hello.html", num=10, name="Mohit", year=today.year)
 
 
+@app.route("/forloop")
+def forloop():
+    return render_template(
+        "Loop.html",
+        fruits=["Mangoes", "Apples", "Oranges"]
+    )
+
+
+@app.route("/ifelse")
+def ifelse():
+    return render_template(
+        "IfElse.html",
+        nums=[2, 3, 4, 5]
+    )
+
+
 if __name__ == "__main__":
     app.run(debug=1)
