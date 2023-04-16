@@ -29,5 +29,10 @@ def get_ifelse():
     )
 
 
+@app.route("/num/<num>")
+def put_num(num):
+    return "<h2>Getting value {} after redirecting.</h2>".format(num)
+
+
 if __name__ == "__main__":
     app.run(debug=1)

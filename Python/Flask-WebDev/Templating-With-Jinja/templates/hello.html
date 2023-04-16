@@ -18,9 +18,16 @@
         
         <!--
             url_for() is used to redirect to another page using Jinja Templeting.
-            It takes mehod name as an argument which is defined in server.py file
+            It takes mehod name as an argument which is defined in server.py file.
+            The method should be defined as part of a route.
         -->
         <a href="{{ url_for('get_ifelse') }}">Link for IfElse page. Redirecting Using Templating.</a>
+        <br>
+        <!--
+            num variable gets passed to server while calling put_num method. The method then recieves 
+            3 as value of num and process it as desired.
+        -->
+        <a href="{{ url_for('put_num', num=3) }}">Passing Value to the method while Redirecting.</a>
 
         <script src="" async defer></script>
         <footer><p>Copyright {{year}}. Created by Mohit Rathor</p></footer>
