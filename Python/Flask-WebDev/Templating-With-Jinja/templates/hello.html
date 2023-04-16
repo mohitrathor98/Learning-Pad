@@ -16,6 +16,12 @@
         <h3>{{num}}</h3>
         <h3>{{name}}</h3>
         
+        <!--
+            url_for() is used to redirect to another page using Jinja Templeting.
+            It takes mehod name as an argument which is defined in server.py file
+        -->
+        <a href="{{ url_for('get_ifelse') }}">Link for IfElse page. Redirecting Using Templating.</a>
+
         <script src="" async defer></script>
         <footer><p>Copyright {{year}}. Created by Mohit Rathor</p></footer>
     </body>

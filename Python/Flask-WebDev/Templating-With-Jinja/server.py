@@ -14,7 +14,7 @@ def hello():
 
 
 @app.route("/forloop")
-def forloop():
+def get_forloop():
     return render_template(
         "Loop.html",
         fruits=["Mangoes", "Apples", "Oranges"]
@@ -22,7 +22,7 @@ def forloop():
 
 
 @app.route("/ifelse")
-def ifelse():
+def get_ifelse():
     return render_template(
         "IfElse.html",
         nums=[2, 3, 4, 5]
