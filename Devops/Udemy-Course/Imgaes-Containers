@@ -1,0 +1,15 @@
+**Images and Containers**
+
+***Containers***
+
+    1. The Running "unit of software"
+    2. Container executes the code.
+
+
+***Images***
+
+    1. Templates/Blueprints of containers
+    2. It contains code + required tools/runtimes.
+
+
+<em>One Image(Application) - Multiple containers(Running instances of applications)</em>
