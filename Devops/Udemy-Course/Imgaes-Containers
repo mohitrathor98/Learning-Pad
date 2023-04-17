@@ -23,3 +23,21 @@
         docker run node     : Downloads the node image and run it as container
         docker ps -a        : lists all containers
         docker run -it node : Opens an interactive shell to the container 
+
+    2. Creating custom images: Dockerfile
+
+        FROM node # from node image which exist on docker hub - it is a base on which we will build our application
+
+        WORKDIR /app # where to run all the commands in the container
+
+        COPY . /app # codes to be copied which would run on the container
+        # first path: path outside the Dockerfile
+        # second path: means path inside the image where the path will be copied - here app directory in the root
+
+        RUN npm install # runs any command in the container when image is created
+
+        EXPOSE 80 # expose a port of container to outside env
+
+        # This should be last line of our docker file
+        # as we want to start the container after all configs
+        CMD ["node", "server.js"] # it runs command when container is created
