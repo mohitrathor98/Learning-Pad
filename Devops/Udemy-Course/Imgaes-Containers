@@ -13,3 +13,13 @@
 
 
 <em>One Image(Application) - Multiple containers(Running instances of applications)</em>
+
+<hr>
+
+**Finding and Creating Images**
+
+    1. Using pre-built images: Docker hub
+        
+        docker run node     : Downloads the node image and run it as container
+        docker ps -a        : lists all containers
+        docker run -it node : Opens an interactive shell to the container 
