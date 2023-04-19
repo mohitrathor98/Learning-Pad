@@ -12,9 +12,8 @@
     2. It contains code + required tools/runtimes.
 
 
-<em>One Image(Application) - Multiple containers(Running instances of applications)</em>
+One Image(Application) - Multiple containers(Running instances of applications)
 
-<hr>
 
 **Finding and Creating Images**
 
@@ -41,3 +40,34 @@
         # This should be last line of our docker file
         # as we want to start the container after all configs
         CMD ["node", "server.js"] # it runs command when container is created
+
+        ==> CMD to build the image using docker file: docker build <path of dockerfile>
+        ==> CMD to run the container of image: docker run <image name>
+
+        ==> CMD to run the container with port exposed: docker run -p 3000:80 <image name>
+                                                        Where
+                                                        p stands for publish
+                                                        3000 is system/client port
+                                                        80 is docker container internal port
+
+**NOTE**
+
+    EXPOSE 80 in the Dockerfile in the end is optional. It documents that a process in the container will expose this port. But we still need to then actually expose the port with -p when running docker run. So technically, -p is the only required part when it comes to listening on a port. Still, it is a best practice to also add EXPOSE in the Dockerfile to document this behavior.
+
+    As an additional quick side-note: For all docker commands where an ID can be used, we don't always have to copy / write out the full id.
+
+    we can also just use the first (few) character(s) - just enough to have a unique identifier.
+
+    So instead of
+
+    docker run abcdefg
+    
+    we could also run
+
+    docker run abc
+    
+    or, if there's no other image ID starting with "a", we could even run just:
+
+    docker run a
+    
+    This applies to ALL Docker commands where IDs are needed.
