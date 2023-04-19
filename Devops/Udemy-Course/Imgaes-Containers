@@ -71,3 +71,37 @@ One Image(Application) - Multiple containers(Running instances of applications)
     docker run a
     
     This applies to ALL Docker commands where IDs are needed.
+
+
+*** Layered Based architecture of images ***
+
+    Docker images have layered based architecture.
+    It runs each command present in the docker file as layers.
+    
+    When we run any docker file, docker do a caching. So if we run
+    again it doesn't need to run the commands again.
+
+    Now, if we change something, let's say in source code.
+    Docker will run the commands starting from copying of source code
+    to the end again. So, changing a layer, affects all upcoming layer as well.
+
+    Optimizing above docker file to take less time whenever we make any change 
+    in the source code.
+
+    FROM node
+    WORKDIR /app
+
+    # Only copy package.json first
+    # required for npn installation
+    COPY package.json /app
+
+    RUN npm install
+
+    # Now when source code will change, it won't affect
+    # the upper layers of image
+    COPY . /app
+
+    EXPOSE 80
+    CMD ["node", "server.js"]
+
+**TO build a specific dockerfile**: docker build -f MyDockerFile . : Where . is the path of file
