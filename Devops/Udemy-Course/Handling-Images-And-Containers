@@ -54,3 +54,5 @@
                                            Eg: node:14 - for node v14
 
 24. docker run -it <image_name>:<tag>  : Run container using image name and tag
+
+25. docker tag <old image> <new image> : Rename an existing image

@@ -1,0 +1,19 @@
+It can be done by pushing the docker images to registries.
+1. Docker Hub is a public registry and free to use
+2. Private registries: stores docker images. Handled by organizations.
+
+Push : docker push <image> || if private reg.: docker push <Host>:<image>
+Pull : docker pull <image>
+
+Pushing to docker hub
+=====================
+
+1. Sign up and create a repo(image) on docker hub
+2. Copy the command to push to the hub
+3. Image name to be pushed should be same as repo name
+    Ex: docker push morathoe/node-app-practice
+    Image name should be morathoe/node-app-practice
+
+4. To rename a pre-existing image: docker tag <old image> <new image>
+5. Login to the docker: docker login 
+6. Push using command in step 3
