@@ -30,3 +30,13 @@
                              t - pseudo-tty; creates a terminal to interact.
 
 13. docker start -a -i <container>: To start a existing container in STDIN and STDOUT mode.
+
+14. docker rm <container1> <container2> .. : remove stopped containers
+
+15. docker run -p 8000:80 -d --rm <image> : Removes the container when it stops.
+
+16. docker images: lists all the images
+
+17. docker rmi <image> : removes image and all the layers(containers need to removed first)
+
+18. docker image prune : removes all images whose containers are not there.
