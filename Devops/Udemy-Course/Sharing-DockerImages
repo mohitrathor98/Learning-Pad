@@ -17,3 +17,13 @@ Pushing to docker hub
 4. To rename a pre-existing image: docker tag <old image> <new image>
 5. Login to the docker: docker login 
 6. Push using command in step 3
+
+Pulling from docker hub
+=======================
+
+1. docker pull <image-name> : pulls the latest version of image from docker hub
+
+2. docker run <image-name> : first checks if available locally and if not then pulls from hub.
+                             So, if already available then it will run it and not fetch the latest
+                             from hub.
+
