@@ -46,3 +46,11 @@
 20. docker cp <local_dir>/<filename> <container>:<path to copy to> : Copies files to container
 
 21. docker cp <container>:<path of file> <local_dir> : Copies files from container
+
+22. docker run -p 8000:80 -d --rm --name <container-name> <image> : Assign a name to container being created 
+
+23. docker build -t <image_name>:<tag> . : builds an image using docker file with specific name tags.
+                                           image_name: User defined name, tag: Anything which specifies the image.
+                                           Eg: node:14 - for node v14
+
+24. docker run -it <image_name>:<tag>  : Run container using image name and tag
