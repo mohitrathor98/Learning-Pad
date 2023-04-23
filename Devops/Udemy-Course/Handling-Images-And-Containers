@@ -1,0 +1,7 @@
+1. docker --help : Add --help after any docker command to list available options
+
+2. docker ps : list running containers
+
+3. docker ps -a : list all containers
+
+4. docker start <container> : To start a pre-existing stopped container in detached mode.

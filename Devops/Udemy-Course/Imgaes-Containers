@@ -105,3 +105,8 @@ One Image(Application) - Multiple containers(Running instances of applications)
     CMD ["node", "server.js"]
 
 **TO build a specific dockerfile**: docker build -f MyDockerFile . : Where . is the path of file
+
+
+**Attached and Detached containers**:
+    Attached Containers run in foreground and hence, blocking the terminal.
+    Detached Containers run in background.
