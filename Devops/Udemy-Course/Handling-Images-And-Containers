@@ -40,3 +40,9 @@
 17. docker rmi <image> : removes image and all the layers(containers need to removed first)
 
 18. docker image prune : removes all images whose containers are not there.
+
+19. docker image inspect <image> : give information about image like, configurations, layers, entry point, etc
+
+20. docker cp <local_dir>/<filename> <container>:<path to copy to> : Copies files to container
+
+21. docker cp <container>:<path of file> <local_dir> : Copies files from container
