@@ -5,3 +5,28 @@
 3. docker ps -a : list all containers
 
 4. docker start <container> : To start a pre-existing stopped container in detached mode.
+
+5. docker run -p 8000:80 <image> : runs a new container in attached mode
+
+6. docker run -p 8000:80 -d <image> : runs a new container in detached mode.
+
+7. docker attach <container name> : attaches a detached container.
+                                    It starts a new STDIN, STDOUT and STDErr session
+                                    with console of container.
+
+8. docker exec [OPTIONS] CONTAINER COMMAND [ARG...] : Runs a command in existing docker container.                    
+
+8. docker logs <container name> : prints the loggings by the container.
+
+9. docker logs -f <container name> : prints the loggings and follows the output(attached mode).
+
+10. docker stop <container name> : To stop a running container
+
+11. docker start -a <container> : To start a stopped container in attached mode. 
+                                  It starts a container with STDOUT mode.
+
+12. docker run -it <image> : To run a container in interactive mode(give user input.)
+                             i - interactive; keeps STDIN open even if not attached.
+                             t - pseudo-tty; creates a terminal to interact.
+
+13. docker start -a -i <container>: To start a existing container in STDIN and STDOUT mode.

@@ -108,5 +108,6 @@ One Image(Application) - Multiple containers(Running instances of applications)
 
 
 **Attached and Detached containers**:
-    Attached Containers run in foreground and hence, blocking the terminal.
+    Attached Containers run in foreground and hence, blocking the terminal. Terminal listens to
+    the output of the container.
     Detached Containers run in background.
