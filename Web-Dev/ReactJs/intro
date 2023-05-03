@@ -1,0 +1,6 @@
+React Js
+========
+    - A javascript library for building user interfaces.
+    - Able to breakdown complex web structures into element trees.
+    - Able to render only those components which have changes, keeping other 
+      components of web page as it is.
