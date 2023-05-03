@@ -4,3 +4,16 @@ React Js
     - Able to breakdown complex web structures into element trees.
     - Able to render only those components which have changes, keeping other 
       components of web page as it is.
+
+Tutorial Video: https://www.youtube.com/watch?v=SqcY0GlETPk
+
+    Why ReactJS?
+    ===========
+    - Javascript uses DOM(Document Object Model) to query the elements in the 
+      page and manipulate it.
+    - Now, for large scale apps, this vanilla JS becomes tedious and complex
+      to write and maintain.
+
+    -- ReactJS, allows to break web pages into small and reusable components, and 
+       takes care of creating and updating the DOM elements.
+    -- Components helps us write reusable, modular and better organized code.
