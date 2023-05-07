@@ -13,6 +13,8 @@ const luckyNum = 26;
 
 root.render(
   <div>
+    {/*To insert CSS instead of class use className */}
+    <p className="sample" contentEditable="true" spellCheck="false">This is p</p>
     <h1>Fruits</h1>
     <ul>
       <li>Banana</li>
