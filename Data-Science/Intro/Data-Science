@@ -1,0 +1,15 @@
+# What is Data Science?
+
+Data Science is kinda blended with various tools, algorithms, and machine learning principles. Most simply, it involves obtaining meaningful information or insights from structured or unstructured data through a process of analyzing, programming and business skills
+
+# Steps
+
+1. Problem Statement : It’s really important to declare or formulate your problem statement very clearly and precisely. Your whole model and it’s working depend on your statement.
+
+2. Data Collection: Data can be in any form i.e unstructured or structured. It might be in various forms like videos, spreadsheets, coded forms, etc. You must collect all these kinds of sources.
+
+3. Data Analysis and Exploration: It’s one of the prime things in data science to do and time to get inner Holmes out. It’s about analyzing the structure of data, finding hidden patterns in them, studying behaviors, visualizing the effects of one variable over others and then concluding. In R, ggplot is one of the most famous models while matplotlib in Python.
+
+4. Data Modelling: Here, you must choose a good algorithm that best fit to your model. There different kinds of algorithms from regression to classification, SVM( Support vector machines), Clustering, etc.
+
+5. Optimization and Deployment: You check the efficiency of the data model and thus try to optimize it for better accurate prediction.
