@@ -73,3 +73,20 @@ print(arr[1:, :1])
 # 2. axis: Sorting type ==> 0 : column wise, 1: row wise; if no axis defined then sorts row wise
 # 3. kind: Algorithm type
 print(np.sort(arr2, axis=1, kind='mergesort'))
+
+
+# Merging of arrays
+arr1 = [[1, 2, 3, 4], [5, 6, 7, 8]]
+arr2 = [[8, 7, 6, 5], [4, 3, 2, 1]]
+
+# vertical merging of arrays
+np.vstack((arr1, arr2))
+# array([[1, 2, 3, 4],
+#        [5, 6, 7, 8],
+#        [8, 7, 6, 5],
+#        [4, 3, 2, 1]])
+
+# horizontal merging of arrays
+np.hstack((arr1, arr2))
+# array([[1, 2, 3, 4, 8, 7, 6, 5],
+#        [5, 6, 7, 8, 4, 3, 2, 1]])
