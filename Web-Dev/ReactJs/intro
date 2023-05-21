@@ -16,3 +16,10 @@
     -- ReactJS, allows to break web pages into small and reusable components, and
        takes care of creating and updating the DOM elements.
     -- Components helps us write reusable, modular and better organized code.
+
+
+Local Environment
+=================
+1. Install npm
+2. npx create-react-app <proj-name>
+3. cd to proj dir and run "npm start"
