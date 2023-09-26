@@ -1,0 +1,112 @@
+# Tensorflow and Keras
+# Tensorflow is a machine learning package developed by Google. 
+# In 2019, Google integrated Keras into Tensorflow and released Tensorflow 2.0. 
+# Keras is a framework developed independently by François Chollet that creates a simple, layer-centric interface to Tensorflow.
+# This course will be using the Keras interface.
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf
+from tensorflow.keras.layers import Dense, Input
+from tensorflow.keras import Sequential
+from tensorflow.keras.losses import MeanSquaredError, BinaryCrossentropy
+from tensorflow.keras.activations import sigmoid
+from lab_utils_common import dlc
+from lab_neurons_utils import plt_prob_1d, sigmoidnp, plt_linear, plt_logistic
+plt.style.use('./deeplearning.mplstyle')
+import logging
+logging.getLogger("tensorflow").setLevel(logging.ERROR)
+tf.autograph.set_verbosity(0)
+
+
+## DATASET
+X_train = np.array([[1.0], [2.0]], dtype=np.float32)           #(size in 1000 square feet)
+Y_train = np.array([[300.0], [500.0]], dtype=np.float32)       #(price in 1000s of dollars)
+
+fig, ax = plt.subplots(1,1)
+ax.scatter(X_train, Y_train, marker='x', c='r', label="Data Points")
+ax.legend( fontsize='xx-large')
+ax.set_ylabel('Price (in 1000s of dollars)', fontsize='xx-large')
+ax.set_xlabel('Size (1000 sqft)', fontsize='xx-large')
+plt.show()
+
+
+#################
+# Training Linear Regression Model using Keras
+#################
+
+linear_layer = tf.keras.layers.Dense(units=1, activation = 'linear', )
+
+# Triggering Weights based on one dataset
+a1 = linear_layer(X_train[0].reshape(1,1))
+print(a1)
+# tf.Tensor([[1.52]], shape=(1, 1), dtype=float32)
+
+w, b= linear_layer.get_weights()
+print(f"w = {w}, b={b}")
+# w = [[1.52]], b=[0.]
+
+## Setting Own Weights
+set_w = np.array([[200]])
+set_b = np.array([100])
+
+# set_weights takes a list of numpy arrays
+linear_layer.set_weights([set_w, set_b])
+print(linear_layer.get_weights())
+
+# [array([[200.]], dtype=float32), array([100.], dtype=float32)]
+
+# Make Predictions on I/P layer
+prediction_tf = linear_layer(X_train)
+
+
+# =============================================================================================================
+# Logistic Regression
+# =============================================================================================================
+
+X_train = np.array([0., 1, 2, 3, 4, 5], dtype=np.float32).reshape(-1,1)  # 2-D Matrix
+Y_train = np.array([0,  0, 0, 1, 1, 1], dtype=np.float32).reshape(-1,1)  # 2-D Matrix
+
+# A LOGISTIC Neuron
+model = Sequential(
+    [
+        tf.keras.layers.Dense(1, input_dim=1,  activation = 'sigmoid', name='L1')
+    ]
+)
+
+model.summary()
+# Model: "sequential"
+# _________________________________________________________________
+#  Layer (type)                Output Shape              Param #   
+# =================================================================
+#  L1 (Dense)                  (None, 1)                 2         
+                                                                 
+# =================================================================
+# Total params: 2
+# Trainable params: 2
+# Non-trainable params: 0
+# _________________________________________________________________
+
+### Getting Weights
+logistic_layer = model.get_layer('L1')
+w,b = logistic_layer.get_weights()
+print(w,b)
+print(w.shape,b.shape)
+# [[-1.08]] [0.]
+# (1, 1) (1,)
+
+### Setting Weights
+set_w = np.array([[2]])
+set_b = np.array([-4.5])
+# set_weights takes a list of numpy arrays
+logistic_layer.set_weights([set_w, set_b])
+print(logistic_layer.get_weights())
+
+# [array([[2.]], dtype=float32), array([-4.5], dtype=float32)]
+
+## Predicting Output
+a1 = model.predict(X_train[0].reshape(1,1))
+print(a1)
+
+# [[0.01]]
