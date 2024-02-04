@@ -2,7 +2,9 @@ import pandas
 
 # reading data using csv
 data = pandas.read_csv("example.csv")
-print(data["column name"])
+
+# returns first 4 rows of dataframe
+data.head()
 
 data_dict = data.to_dict()
 print(data_dict) # csv data in a dictionaty format
